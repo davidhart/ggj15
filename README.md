@@ -1,2 +1,2 @@
-# ggj15
-Global Game Jam 2015
+# Global Game Jam 2015
+Matthijs Janssens, Richard Bangs & David Hart
