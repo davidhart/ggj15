@@ -113,6 +113,138 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &250078576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100004, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 250078577}
+  - 114: {fileID: 250078578}
+  m_Layer: 0
+  m_Name: XBox 360 Controller Win
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &250078577
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400004, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  m_GameObject: {fileID: 250078576}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1417425573}
+  m_RootOrder: 4
+--- !u!114 &250078578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400004, guid: c71a4c64f8dbe42e08e2be56345ffe9e,
+    type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  m_GameObject: {fileID: 250078576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c163bb99337c4daa9f1c9ef59fec407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowsOnly: 1
+  macOnly: 0
+  isJoystick: 1
+  joystickNames:
+  - Controller (XBOX 360 For Windows)
+  - Controller (Xbox 360 Wireless Receiver for Windows)
+  sensitivity: 3
+  deadZone: .150000006
+  buttonMappings:
+  - target: 1
+    button: button 0
+  - target: 2
+    button: button 1
+  - target: 4
+    button: button 2
+  - target: 8
+    button: button 3
+  axisMappings:
+  - target: 0
+    axis: 'Joystick # X'
+  - target: 1
+    axis: 'Joystick # Y'
+  - target: 2
+    axis: 'Joystick # Axis 3'
+  - target: 3
+    axis: 'Joystick # Axis 4'
+--- !u!1 &488894230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100008, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 488894232}
+  - 114: {fileID: 488894231}
+  m_Layer: 0
+  m_Name: Playstation3 Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &488894231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: c71a4c64f8dbe42e08e2be56345ffe9e,
+    type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  m_GameObject: {fileID: 488894230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c163bb99337c4daa9f1c9ef59fec407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowsOnly: 0
+  macOnly: 0
+  isJoystick: 1
+  joystickNames:
+  - PLAYSTATION(R)3 Controller
+  - Sony PLAYSTATION(R)3 Controller
+  sensitivity: 3
+  deadZone: .150000006
+  buttonMappings:
+  - target: 1
+    button: button 14
+  - target: 2
+    button: button 13
+  - target: 4
+    button: button 15
+  - target: 8
+    button: button 12
+  axisMappings:
+  - target: 0
+    axis: 'Joystick # X'
+  - target: 1
+    axis: 'Joystick # Y'
+  - target: 2
+    axis: 'Joystick # Axis 3'
+  - target: 3
+    axis: 'Joystick # Axis 4'
+--- !u!4 &488894232
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400008, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  m_GameObject: {fileID: 488894230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1417425573}
+  m_RootOrder: 2
 --- !u!1 &499236053
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,3 +329,306 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1 &1417425572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100006, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1417425573}
+  m_Layer: 0
+  m_Name: Device Configurations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1417425573
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400006, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  m_GameObject: {fileID: 1417425572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1825415017}
+  - {fileID: 1531474125}
+  - {fileID: 488894232}
+  - {fileID: 1502707693}
+  - {fileID: 250078577}
+  m_Father: {fileID: 1571830757}
+  m_RootOrder: 0
+--- !u!1 &1502707692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1502707693}
+  - 114: {fileID: 1502707694}
+  m_Layer: 0
+  m_Name: XBox 360 Controller Mac
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1502707693
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  m_GameObject: {fileID: 1502707692}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1417425573}
+  m_RootOrder: 3
+--- !u!114 &1502707694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: c71a4c64f8dbe42e08e2be56345ffe9e,
+    type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  m_GameObject: {fileID: 1502707692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c163bb99337c4daa9f1c9ef59fec407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowsOnly: 0
+  macOnly: 1
+  isJoystick: 1
+  joystickNames:
+  - 
+  - Microsoft Wireless 360 Controller
+  sensitivity: 3
+  deadZone: .150000006
+  buttonMappings:
+  - target: 1
+    button: button 16
+  - target: 2
+    button: button 17
+  - target: 4
+    button: button 18
+  - target: 8
+    button: button 19
+  axisMappings:
+  - target: 0
+    axis: 'Joystick # X'
+  - target: 1
+    axis: 'Joystick # Y'
+  - target: 2
+    axis: 'Joystick # Axis 3'
+  - target: 3
+    axis: 'Joystick # Axis 4'
+--- !u!1 &1531474124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100012, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1531474125}
+  - 114: {fileID: 1531474126}
+  m_Layer: 0
+  m_Name: Keyboard Alt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1531474125
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400012, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  m_GameObject: {fileID: 1531474124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1417425573}
+  m_RootOrder: 1
+--- !u!114 &1531474126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400010, guid: c71a4c64f8dbe42e08e2be56345ffe9e,
+    type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  m_GameObject: {fileID: 1531474124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c163bb99337c4daa9f1c9ef59fec407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowsOnly: 0
+  macOnly: 0
+  isJoystick: 0
+  joystickNames: []
+  sensitivity: 3
+  deadZone: 0
+  buttonMappings:
+  - target: 1
+    button: t
+  - target: 2
+    button: z
+  - target: 4
+    button: u
+  - target: 8
+    button: i
+  axisMappings:
+  - target: 0
+    axis: d a
+  - target: 1
+    axis: w s
+--- !u!1 &1571830756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100010, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1571830757}
+  - 114: {fileID: 1571830758}
+  m_Layer: 0
+  m_Name: Input Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1571830757
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400010, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  m_GameObject: {fileID: 1571830756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1417425573}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+--- !u!114 &1571830758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: c71a4c64f8dbe42e08e2be56345ffe9e,
+    type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  m_GameObject: {fileID: 1571830756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502e1b06ab9234dbc8ddd299fd58387b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1825415016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100002, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1825415017}
+  - 114: {fileID: 1825415018}
+  m_Layer: 0
+  m_Name: Keyboard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1825415017
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400002, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  m_GameObject: {fileID: 1825415016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1417425573}
+  m_RootOrder: 0
+--- !u!114 &1825415018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: c71a4c64f8dbe42e08e2be56345ffe9e,
+    type: 2}
+  m_PrefabInternal: {fileID: 2126015804}
+  m_GameObject: {fileID: 1825415016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c163bb99337c4daa9f1c9ef59fec407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowsOnly: 0
+  macOnly: 0
+  isJoystick: 0
+  joystickNames: []
+  sensitivity: 3
+  deadZone: 0
+  buttonMappings:
+  - target: 1
+    button: space
+  - target: 2
+    button: x
+  - target: 4
+    button: c
+  - target: 8
+    button: v
+  axisMappings:
+  - target: 0
+    axis: right left
+  - target: 1
+    axis: up down
+--- !u!1001 &2126015804
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400010, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c71a4c64f8dbe42e08e2be56345ffe9e, type: 2}
+  m_RootGameObject: {fileID: 1571830756}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
