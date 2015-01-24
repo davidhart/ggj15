@@ -70,8 +70,8 @@ public class Character : MonoBehaviour
 
 	public int Rotation { get; private set; }
 
-	public int X { get { return Mathf.FloorToInt( gameObject.transform.position.x ); } }
-	public int Z { get { return Mathf.FloorToInt( gameObject.transform.position.z ); } }
+	public int X { get { return Mathf.FloorToInt( gameObject.transform.position.x + 0.5f ); } }
+	public int Z { get { return Mathf.FloorToInt( gameObject.transform.position.z + 0.5f ); } }
 
 	void Awake()
 	{
@@ -82,16 +82,8 @@ public class Character : MonoBehaviour
 	{
 		var targetPosition = gameObject.transform.position + ( gameObject.transform.rotation * new Vector3( 0.0f, 0.0f, 1.0f ) );
 
-		var tileDefinition = Level.Instance.GetTileAtLocation( targetPosition );
-
-		if( !tileDefinition.IsWalkable() )
-		{
-			//	CANT WALK HERE MATE!
-			CharacterAnimation.Setup( this, CharacterAnimation.eAnimationType.AttemptingToWalkOnNonWalkableTile,
-			                         gameObject.transform.position, gameObject.transform.rotation );
-
+		if( !PreMoveChecks( targetPosition ) )
 			return;
-		}
 
 		CharacterAnimation.Setup( this, CharacterAnimation.eAnimationType.MoveForward,
 		                         targetPosition, gameObject.transform.rotation );
@@ -101,8 +93,50 @@ public class Character : MonoBehaviour
 	{
 		var targetPosition = gameObject.transform.position - ( gameObject.transform.rotation * new Vector3( 0.0f, 0.0f, 1.0f ) );
 
+		if( !PreMoveChecks( targetPosition ) )
+			return;
+
 		CharacterAnimation.Setup( this, CharacterAnimation.eAnimationType.MoveBackward,
 		                         targetPosition, gameObject.transform.rotation );
+	}
+
+	public bool PreMoveChecks( Vector3 targetPosition )
+	{
+		if( targetPosition.x < 0.0f )
+			return false;
+
+		if( targetPosition.z < 0.0f )
+			return false;
+
+		var tileDefinition = Level.Instance.GetTileAtLocation( targetPosition );
+		
+		if( !tileDefinition.IsWalkable() )
+		{
+			//	CANT WALK HERE MATE!
+			CharacterAnimation.Setup( this, CharacterAnimation.eAnimationType.AttemptingToWalkOnNonWalkableTile,
+			                         gameObject.transform.position, gameObject.transform.rotation );
+			
+			return false;
+		}
+
+		if( Level.Instance.ContainsFire( targetPosition ) )
+		{
+			Debug.LogError( "Mmmmm Toasted Player, Lovely!" );
+			return false;
+		}
+
+		return true;
+	}
+
+	public bool IsInFire()
+	{
+		if( Level.Instance.ContainsFire( gameObject.transform.position ) )
+		{
+			Debug.LogError( "Mmmmm Toasted Player, Lovely!" );
+			return true;
+		}
+
+		return false;
 	}
 
 	public void RotateLeft()
