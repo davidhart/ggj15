@@ -26,12 +26,24 @@ public class IngamePlayersController : MonoBehaviour
 		}
 	}
 
+	void CheckForVictory()
+	{
+		bool isFinished = Level.Instance.ContainsEndGame( Character.Instance.gameObject.transform.position );
+
+		if( isFinished )
+		{
+			StateMachine.instance.SetState( new VictoryState() );
+		}
+	}
+
 	public void Update()
 	{
 		foreach(Player player in ActivePlayers.Instance.Players)
 		{
 			player.UpdateInput();
 		}
+
+		CheckForVictory();
 
 		if (ActivePlayers.Instance.Players.All(q=>q.SelectionLockedIn) && ActionQueue.Instance.Done())
 		{
