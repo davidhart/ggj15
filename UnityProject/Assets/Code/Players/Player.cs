@@ -42,11 +42,7 @@ public class Player
 
 		if ( device.GetButtonDown( ButtonType.Action1 ) )
 		{
-			ActionQueue.Instance.AddToQueue(SelectedAction);
-
-			selectionLockedIn = true;
-
-			onSelectionLockedIn();
+			LockInSelection();
 			return;
 		}
 
@@ -153,8 +149,7 @@ public class Player
 
 	public void ConsumeSelectedAction()
 	{
-		availableActions.RemoveAt(selectionIndex);
-		selectionIndex = 0;
+		availableActions[selectionIndex] = null;
 		selectionLockedIn = false;
 		onSelectionUnlocked();
 	}
@@ -163,12 +158,18 @@ public class Player
 	{
 		while(availableActions.Count < MaxAvailableActions)
 		{
-			availableActions.Add( ActionGenerator.GenerateAction() );
+			availableActions.Add(null);
+		}
+
+		for (int i = 0; i < MaxAvailableActions; ++i)
+		{
+			if (availableActions[i] == null)
+			{
+				availableActions[i] = ActionGenerator.GenerateAction();
+			}
 		}
 
 		onCardsPopulated();
-
-		SetSelection(0);
 	}
 
 	private void MoveSelectionLeft()
@@ -204,5 +205,14 @@ public class Player
 	public bool SelectionLockedIn
 	{
 		get { return selectionLockedIn; }
+	}
+
+	public void LockInSelection()
+	{
+		ActionQueue.Instance.AddToQueue(SelectedAction);
+		
+		selectionLockedIn = true;
+		
+		onSelectionLockedIn();
 	}
 }

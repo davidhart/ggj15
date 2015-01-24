@@ -8,6 +8,9 @@ public class Level : MonoBehaviour
 	public const int maxSize = 128;
 
 	public TileDefinition[,] tiles;
+	List<EndGame> endGames = new List<EndGame>();
+
+	List<StartGame> startGames = new List<StartGame>();
 
 	public static Level Instance { get; private set; }
 
@@ -43,6 +46,22 @@ public class Level : MonoBehaviour
 
 		Debug.Log( string.Format ( "Level Bounds = X={0} Z={1}", BoundsX, BoundsZ ) );
 
+		var endGameObjects = GameObject.FindObjectsOfType< EndGame >();
+		foreach( var endGame in endGameObjects )
+		{
+			endGames.Add ( endGame );
+		}
+
+		var startGameObjects = GameObject.FindObjectsOfType< StartGame >();
+		foreach( var startGame in startGameObjects )
+		{
+			startGames.Add ( startGame );
+		}
+
+		StartGame myGame = startGames[ Random.Range( 0, startGames.Count ) ];
+		Character.Instance.gameObject.transform.position = myGame.transform.position;
+		Character.Instance.gameObject.transform.rotation = myGame.transform.rotation;
+
 		FireManager.Instance.OnStartLevel();
 	}
 	
@@ -65,6 +84,20 @@ public class Level : MonoBehaviour
 		int Z = Mathf.FloorToInt( worldPosition.z + 0.5f );
 
 		return FireManager.Instance.ContainsFire( X, Z );
+	}
+
+	public bool ContainsEndGame( Vector3 worldPosition )
+	{
+		int X = Mathf.FloorToInt( worldPosition.x + 0.5f );
+		int Z = Mathf.FloorToInt( worldPosition.z + 0.5f );
+
+		foreach( var endGame in endGames )
+		{
+			if( endGame.X == X && endGame.Z == Z )
+				return true;
+		}
+
+		return false;
 	}
 
 	public void UnloadLevel()

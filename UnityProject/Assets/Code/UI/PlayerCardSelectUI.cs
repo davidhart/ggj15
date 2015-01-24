@@ -1,11 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class PlayerCardSelectUI : MonoBehaviour
 {
-	public List<CardUI> Cards = new List<CardUI>();
+	private List<CardUI> Cards = new List<CardUI>();
+	private GameObject CardSlotPrefab;
+	public RectTransform CardTransformParent;
 
 	private Player player;
+
+	const int NumberOfCardSlots = 3;
+	const float ItemHeight = 80.0f;
+	const float itemWidth = 80.0f;
+	const float itemSpacing = 5.0f;
 
 	public void SetupForPlayer(Player player)
 	{
@@ -14,6 +22,27 @@ public class PlayerCardSelectUI : MonoBehaviour
 		player.onSelectionLockedIn += OnSelectionLockedIn;
 		player.onSelectionUnlocked += OnSelectionUnlocked;
 		player.onCardsPopulated += OnCardsPopulated;
+
+		CardSlotPrefab = Resources.Load("UI/CardLarge") as GameObject;
+		
+		HorizontalLayoutGroup group = CardTransformParent.gameObject.AddComponent<HorizontalLayoutGroup>();
+		group.spacing = itemSpacing;
+		group.childAlignment = TextAnchor.MiddleCenter;
+		float width = NumberOfCardSlots * itemWidth + (NumberOfCardSlots - 1) * itemSpacing;
+		
+		CardTransformParent.offsetMin = new Vector2(-width / 2.0f, -ItemHeight);
+		CardTransformParent.offsetMax = new Vector2(width / 2.0f, 0.0f);
+		
+		for (int i = 0; i < NumberOfCardSlots; ++i)
+		{
+			GameObject card = GameObject.Instantiate(CardSlotPrefab) as GameObject;
+			
+			RectTransform cardTransform = card.GetComponent<RectTransform>();
+			cardTransform.SetParent(CardTransformParent, false);
+			
+			Cards.Add(card.GetComponent<CardUI>());
+		}
+
 	}
 
 	public void OnDestroy()
