@@ -36,7 +36,14 @@ public class TileDefinition : MonoBehaviour
 	void Update()
 	{
 		if( !Application.isPlaying )
+		{
 			SnapToGrid();
+
+			if( Input.GetKeyDown( KeyCode.Space ) )
+			{
+				gameObject.transform.rotation *= Quaternion.AngleAxis( 90.0f, Vector3.up );
+			}
+		}
 	}
 
 	public bool IsWalkable()
