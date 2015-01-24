@@ -10,7 +10,7 @@ public class ActivePlayers
 
 	List<Player> players = new List<Player>();
 
-	public IEnumerable<Player> Players
+	public List<Player> Players
 	{
 		get { return players; }
 	}

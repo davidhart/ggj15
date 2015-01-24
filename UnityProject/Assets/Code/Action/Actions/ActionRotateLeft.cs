@@ -7,4 +7,9 @@ public class ActionRotateLeft : ActionBase
 	{
 		Character.Instance.RotateLeft();
 	}
+
+	public override string Name ()
+	{
+		return "Left Turn";
+	}
 }

@@ -5,8 +5,10 @@ using System.Collections.Generic;
 public class ActionQueue
 {
 	public static ActionQueue Instance { get; private set; }
+	public System.Action OnCardQueued;
 
-	List< ActionBase > Actions = new List< ActionBase >();
+	List< ActionBase > actions = new List< ActionBase >();
+
 
 	public ActionQueue()
 	{
@@ -15,16 +17,23 @@ public class ActionQueue
 
 	public void AddToQueue( ActionBase newAction )
 	{
-		Actions.Add( newAction );
+		actions.Add( newAction );
+
+		OnCardQueued();
 	}
 
 	public void Execute()
 	{
-		foreach( var action in Actions )
+		foreach( var action in actions )
 		{
 			action.Execute();
 		}
 
-		Actions.Clear();
+		actions.Clear();
+	}
+
+	public List<ActionBase> Actions
+	{
+		get { return actions; }
 	}
 }

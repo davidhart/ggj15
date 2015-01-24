@@ -7,4 +7,9 @@ public class ActionBackward : ActionBase
 	{
 		Character.Instance.MoveBackward();
 	}
+
+	public override string Name()
+	{
+		return "Backward";
+	}
 }

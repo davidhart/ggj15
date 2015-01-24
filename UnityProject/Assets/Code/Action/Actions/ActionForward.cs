@@ -7,4 +7,9 @@ public class ActionForward : ActionBase
 	{
 		Character.Instance.MoveForward();
 	}
+
+	public override string Name ()
+	{
+		return "Forward";
+	}
 }
