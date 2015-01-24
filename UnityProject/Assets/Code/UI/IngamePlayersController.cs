@@ -42,6 +42,8 @@ public class IngamePlayersController : MonoBehaviour
 				player.ConsumeSelectedAction();
 				player.PopulateActions();
 			}
+
+			FireManager.Instance.FireSpreads();
 		}
 	}
 }
