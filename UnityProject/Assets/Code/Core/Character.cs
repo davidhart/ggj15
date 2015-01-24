@@ -68,7 +68,7 @@ public class Character : MonoBehaviour
 {
 	public static Character Instance { get; private set; }
 
-	public int Rotation { get; private set; }
+	public int Rotation { get; set; }
 
 	public int X { get { return Mathf.FloorToInt( gameObject.transform.position.x + 0.5f ); } }
 	public int Z { get { return Mathf.FloorToInt( gameObject.transform.position.z + 0.5f ); } }

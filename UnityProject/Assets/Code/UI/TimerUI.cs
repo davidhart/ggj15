@@ -13,6 +13,7 @@ public class TimerUI : MonoBehaviour {
 	public System.Action OnTimerCountdown;
 
 	bool lockOutTimerCountdown = false;
+	const bool timerEnabled = false;
 
 	public float Ratio()
 	{
@@ -28,6 +29,9 @@ public class TimerUI : MonoBehaviour {
 
 	public void Update()
 	{
+		if( !timerEnabled )
+			return;
+
 		TimerCurrent -= Time.deltaTime;
 
 		if (Mathf.FloorToInt(TimerCurrent + 1.0f) <= 0 && lockOutTimerCountdown == false)
