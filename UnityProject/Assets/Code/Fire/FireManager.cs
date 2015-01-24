@@ -29,9 +29,23 @@ public class FireManager : MonoBehaviour
 	{
 		Instance = this;
 
+		fireResource = Resources.Load( "Fire" ) as GameObject;
+	}
+
+	public void OnStartLevel()
+	{
 		Fires = new Fire[ Level.maxSize, Level.maxSize ];
 
-		fireResource = Resources.Load( "Fire" ) as GameObject;
+		var startingFires = GameObject.FindObjectsOfType< Fire >();
+
+		Debug.Log( string.Format( "Found {0} fires", startingFires.Length ) );
+		foreach( var fire in startingFires )
+		{
+			int X = Mathf.FloorToInt( fire.transform.position.x + 0.5f );
+			int Z = Mathf.FloorToInt( fire.transform.position.z + 0.5f );
+			
+			Fires[ X, Z ] = fire;
+		}
 	}
 
 	void StartFireAtLocation( int X, int Z )
@@ -56,6 +70,9 @@ public class FireManager : MonoBehaviour
 
 	void Update()
 	{
+		if( Input.GetKeyDown( KeyCode.P ) )
+			OnStartLevel();
+
 		if( Input.GetKeyDown( KeyCode.F ) )
 		{
 			StartRandomFire();

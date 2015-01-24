@@ -42,6 +42,8 @@ public class Level : MonoBehaviour
 		BoundsZ++;
 
 		Debug.Log( string.Format ( "Level Bounds = X={0} Z={1}", BoundsX, BoundsZ ) );
+
+		FireManager.Instance.OnStartLevel();
 	}
 	
 	public TileDefinition GetTileAtLocation( Vector3 worldPosition )
