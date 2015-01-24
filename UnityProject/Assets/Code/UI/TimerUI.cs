@@ -12,6 +12,13 @@ public class TimerUI : MonoBehaviour {
 
 	public System.Action OnTimerCountdown;
 
+	bool lockOutTimerCountdown = false;
+
+	public float Ratio()
+	{
+		return 1.0f - ( TimerCurrent / TimerLength );
+	}
+
 	public void Start()
 	{
 		TimerCurrent = TimerLength;
@@ -23,9 +30,10 @@ public class TimerUI : MonoBehaviour {
 	{
 		TimerCurrent -= Time.deltaTime;
 
-		if (Mathf.FloorToInt(TimerCurrent + 1.0f) <= 0)
+		if (Mathf.FloorToInt(TimerCurrent + 1.0f) <= 0 && lockOutTimerCountdown == false)
 		{
 			OnTimerCountdown();
+			lockOutTimerCountdown = true;
 
 			return;
 		}
@@ -43,6 +51,8 @@ public class TimerUI : MonoBehaviour {
 	{
 		TimerLength = duration;
 		TimerCurrent = duration;
+
+		lockOutTimerCountdown = false;
 
 		UpdateUI();
 	}

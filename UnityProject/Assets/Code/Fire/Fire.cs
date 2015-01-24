@@ -9,6 +9,7 @@ public class Fire : MonoBehaviour
 	public int X { get { return Mathf.FloorToInt( gameObject.transform.position.x + 0.5f ); } }
 	public int Z { get { return Mathf.FloorToInt( gameObject.transform.position.z + 0.5f ); } }
 
+	public Light FireLight;
 
 	public void SetPosition( int X, int Z )
 	{

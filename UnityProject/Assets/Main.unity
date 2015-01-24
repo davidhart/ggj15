@@ -74,6 +74,75 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
+--- !u!1 &21392849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 21392851}
+  - 114: {fileID: 21392850}
+  m_Layer: 0
+  m_Name: FireAnimations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &21392850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 21392849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a44b7c387869454fb6f8c9cf1c2b87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimerIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - time: -.0038960583
+      value: .999884188
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .0960543156
+      value: .00289713056
+      inSlope: .0633520558
+      outSlope: .0633520558
+      tangentMode: 0
+    - time: .827130139
+      value: .379037261
+      inSlope: 1.14113092
+      outSlope: 1.14113092
+      tangentMode: 0
+    - time: .969315648
+      value: .996228516
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: 1.00128698
+      value: 1.00001824
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!4 &21392851
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 21392849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &44003160
 GameObject:
   m_ObjectHideFlags: 0
