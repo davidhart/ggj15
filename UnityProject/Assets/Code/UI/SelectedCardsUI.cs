@@ -7,17 +7,18 @@ public class SelectedCardsUI : MonoBehaviour
 
 	public void Start()
 	{
-		ActionQueue.Instance.OnCardQueued += OnCardQueued;
+		ActionQueue.Instance.OnQueueChanged += OnCardQueued;
 
 		for (int i = 0; i < CardSlots.Count; ++i)
 		{
 			CardSlots[i].gameObject.SetActive(i < ActivePlayers.Instance.Players.Count);
+			CardSlots[i].SetupForAction(null);
 		}
 	}
 
 	public void OnDestroy()
 	{
-		ActionQueue.Instance.OnCardQueued -= OnCardQueued;
+		ActionQueue.Instance.OnQueueChanged -= OnCardQueued;
 	}
 
 	public void OnCardQueued()

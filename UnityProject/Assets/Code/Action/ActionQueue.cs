@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class ActionQueue
 {
 	public static ActionQueue Instance { get; private set; }
-	public System.Action OnCardQueued;
+	public System.Action OnQueueChanged;
 
 	List< ActionBase > actions = new List< ActionBase >();
 
@@ -25,8 +25,8 @@ public class ActionQueue
 	{
 		actions.Add( newAction );
 
-		if (OnCardQueued != null)
-			OnCardQueued();
+		if (OnQueueChanged != null)
+			OnQueueChanged();
 	}
 	
 	public void Update()
@@ -50,6 +50,9 @@ public class ActionQueue
 	{
 		currentActionIndex = 0;
 		actions.Clear();
+
+		if (OnQueueChanged != null)
+			OnQueueChanged();
 	}
 
 	public bool Done()
