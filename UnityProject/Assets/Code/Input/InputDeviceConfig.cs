@@ -65,7 +65,8 @@ public enum ButtonType
 	Action4 = 8,
 	Action5 = 16,
 	Action6 = 32,
-	Action7 = 64
+	Action7 = 64,
+	Start = 128,
 }
 
 public enum AxisType

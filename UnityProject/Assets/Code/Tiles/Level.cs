@@ -30,6 +30,14 @@ public class Level : MonoBehaviour
 		}
 	}
 
+	public TileDefinition GetTileAtLocation( Vector3 worldPosition )
+	{
+		int X = Mathf.FloorToInt( worldPosition.x );
+		int Z = Mathf.FloorToInt( worldPosition.z );
+
+		return GetTileAtLocation( X, Z );
+	}
+
 	public TileDefinition GetTileAtLocation( int X, int Z )
 	{
 		return tiles[ X, Z ];
