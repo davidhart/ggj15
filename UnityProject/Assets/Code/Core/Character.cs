@@ -109,8 +109,8 @@ public class Character : MonoBehaviour
 			return false;
 
 		var tileDefinition = Level.Instance.GetTileAtLocation( targetPosition );
-		
-		if( !tileDefinition.IsWalkable() )
+
+		if( tileDefinition == null || !tileDefinition.IsWalkable() )
 		{
 			//	CANT WALK HERE MATE!
 			CharacterAnimation.Setup( this, CharacterAnimation.eAnimationType.AttemptingToWalkOnNonWalkableTile,
