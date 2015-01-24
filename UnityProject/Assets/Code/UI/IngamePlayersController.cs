@@ -16,7 +16,7 @@ public class IngamePlayersController : MonoBehaviour
 			}
 			else
 			{
-				PlayerCardUI[i].gameObject.SetActive(false);
+				PlayerCardUI[i].transform.parent.parent.gameObject.SetActive(false);
 			}
 		}
 
