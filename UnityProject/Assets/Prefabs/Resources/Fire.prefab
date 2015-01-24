@@ -422,7 +422,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: .641379297, b: 0, a: 1}
   m_Intensity: .230000004
-  m_Range: 3.75
+  m_Range: 4.5
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -457,6 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c110aeef0b5ac4906a147524de97521e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireLight: {fileID: 10800000}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

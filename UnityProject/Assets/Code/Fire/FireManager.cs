@@ -23,13 +23,17 @@ public class FireManager : MonoBehaviour
 
 	GameObject fireResource;
 
-	List<GameObject> fireGameObjects = new List<GameObject>();
+	List<Fire> fireObjects = new List<Fire>();
+
+	public FireAnimations fireAnimations;
 
 	void Start()
 	{
 		Instance = this;
 
 		fireResource = Resources.Load( "Fire" ) as GameObject;
+
+		fireAnimations = GameObject.Find( "FireAnimations" ).GetComponent< FireAnimations >();
 	}
 
 	public void OnStartLevel()
@@ -51,13 +55,15 @@ public class FireManager : MonoBehaviour
 	void StartFireAtLocation( int X, int Z )
 	{
 		var newGO = GameObject.Instantiate( fireResource ) as GameObject;
-		
+
 		newGO.transform.parent = gameObject.transform;
 		
-		var fire = newGO.AddComponent< Fire >();
+		var fire = newGO.GetComponent< Fire >();
 		fire.SetPosition( X, Z );
-		
+
 		Fires[ X, Z ] = fire;
+
+		fireObjects.Add( fire );
 	}
 
 	void StartRandomFire()
@@ -81,6 +87,17 @@ public class FireManager : MonoBehaviour
 		if( Input.GetKeyDown( KeyCode.G ) )
 		{
 			FireSpreads();
+		}
+
+		int index = 0;
+		foreach( var fireLight in fireObjects )
+		{
+			float ratio = IngameController.Instance.Timer.Ratio();
+			float multiplier = fireAnimations.TimerIntensity.Evaluate( ratio ) + 0.3f;
+
+			fireLight.FireLight.intensity = ( ( ( Mathf.PerlinNoise( index, Time.timeSinceLevelLoad * 3.0f ) * 0.3f ) ) + 0.2f ) * multiplier;
+
+			index++;
 		}
 	}
 
@@ -170,5 +187,7 @@ public class FireManager : MonoBehaviour
 				}
 			}
 		}
+
+		fireObjects.Clear();
 	}
 }

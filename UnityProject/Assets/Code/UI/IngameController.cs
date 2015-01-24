@@ -4,15 +4,20 @@ using System.Linq;
 
 public class IngameController : MonoBehaviour
 {
+	public static IngameController Instance { get; private set; }
+
 	public List<PlayerCardSelectUI> PlayerCardUI = new List<PlayerCardSelectUI>();
 	public TimerUI Timer;
 
 	float timerDuration = 10.0f;
 	float timerDecayRate = 1.0f;
+	float timerNaturalDecayRate = 0.25f;
 	float timerMinDuration = 5.0f;
 
 	public void Start()
 	{
+		Instance = this;
+
 		for (int i = 0; i < PlayerCardUI.Count; ++i)
 		{
 			if (i < ActivePlayers.Instance.Players.Count)
@@ -71,6 +76,9 @@ public class IngameController : MonoBehaviour
 
 			FireManager.Instance.FireSpreads();
 
+			timerDuration -= timerNaturalDecayRate;
+			timerDuration = Mathf.Max(timerMinDuration, timerDuration);
+
 			Timer.ResetTimer(timerDuration);
 		}
 	}
@@ -81,7 +89,7 @@ public class IngameController : MonoBehaviour
 		//FireManager.Instance.FireSpreads();
 		timerDuration -= timerDecayRate;
 		timerDuration = Mathf.Max(timerMinDuration, timerDuration);
-		Timer.ResetTimer(timerDuration);
+		//Timer.ResetTimer(timerDuration);
 	}
 
 	private void ForceRandomInputsForRemainingPlayers()

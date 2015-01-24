@@ -61,6 +61,7 @@ public class Level : MonoBehaviour
 		StartGame myGame = startGames[ Random.Range( 0, startGames.Count ) ];
 		Character.Instance.gameObject.transform.position = myGame.transform.position;
 		Character.Instance.gameObject.transform.rotation = myGame.transform.rotation;
+		Character.Instance.Rotation = Mathf.FloorToInt( myGame.transform.rotation.eulerAngles.y + 0.5f ) / 90;
 
 		FireManager.Instance.OnStartLevel();
 	}
