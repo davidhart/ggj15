@@ -12,6 +12,12 @@ public class ActionRotateLeft : ActionBase
 	{
 		return "Left Turn";
 	}
+
+	public override int IconIndex ()
+	{
+		return 2;
+	}
+
 	public override bool IsDone()
 	{
 		return !Character.Instance.IsAnimating();

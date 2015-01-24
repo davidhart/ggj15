@@ -42,7 +42,7 @@ public class PlayerCardSelectUI : MonoBehaviour
 			
 			Cards.Add(card.GetComponent<CardUI>());
 		}
-
+		OnSelectionChanged();
 	}
 
 	public void OnDestroy()
@@ -78,6 +78,7 @@ public class PlayerCardSelectUI : MonoBehaviour
 				ActionBase action = player.AvailableActions[i];
 				
 				Cards[i].SetSelectionLocked(player.SelectedAction == action);
+				Cards[i].SetSelectionLockedOut(player.SelectedAction != action);
 			}
 		}
 	}
@@ -87,6 +88,7 @@ public class PlayerCardSelectUI : MonoBehaviour
 		for (int i = 0; i < Cards.Count; ++i)
 		{
 			Cards[i].SetSelectionLocked(false);
+			Cards[i].SetSelectionLockedOut(false);
 		}
 	}
 

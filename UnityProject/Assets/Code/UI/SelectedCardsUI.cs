@@ -8,13 +8,15 @@ public class SelectedCardsUI : MonoBehaviour
 
 	GameObject CardSlotPrefab;
 
-	const int NumberOfCardSlots = 4;
+	int NumberOfCardSlots = 0;
 	const float ItemHeight = 100.0f;
 	const float itemWidth = 100.0f;
 	const float itemSpacing = 10.0f;
 
 	public void Start()
 	{
+		NumberOfCardSlots = ActivePlayers.Instance.Players.Count;
+
 		CardSlotPrefab = Resources.Load("UI/CardLarge") as GameObject;
 
 		HorizontalLayoutGroup group = gameObject.AddComponent<HorizontalLayoutGroup>();
@@ -37,6 +39,8 @@ public class SelectedCardsUI : MonoBehaviour
 		}
 
 		ActionQueue.Instance.OnQueueChanged += OnCardQueued;
+
+		OnCardQueued();
 	}
 
 	public void OnDestroy()
@@ -46,7 +50,7 @@ public class SelectedCardsUI : MonoBehaviour
 
 	public void OnCardQueued()
 	{
-		for(int i = 0; i < ActivePlayers.Instance.Players.Count; ++i)
+		for(int i = 0; i < NumberOfCardSlots; ++i)
 		{
 			if (i < ActionQueue.Instance.Actions.Count)
 			{

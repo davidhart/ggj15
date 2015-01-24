@@ -12,6 +12,12 @@ public class ActionForward : ActionBase
 	{
 		return "Forward";
 	}
+
+	public override int IconIndex ()
+	{
+		return 1;
+	}
+
 	public override bool IsDone()
 	{
 		return !Character.Instance.IsAnimating();
