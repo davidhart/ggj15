@@ -4,8 +4,10 @@ using System.Collections.Generic;
 
 public class ActionQueue
 {
-	public static ActionQueue Instance { get; private set; }
+	public static ActionQueue Instance { get { return instance; } }
 	public System.Action OnQueueChanged;
+
+	private static ActionQueue instance = new ActionQueue();
 
 	List< ActionBase > actions = new List< ActionBase >();
 
@@ -15,11 +17,6 @@ public class ActionQueue
 	}
 
 	private int currentActionIndex = 0;
-
-	public ActionQueue()
-	{
-		Instance = this;
-	}
 
 	public void AddToQueue( ActionBase newAction )
 	{

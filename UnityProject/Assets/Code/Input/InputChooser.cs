@@ -87,6 +87,6 @@ public class InputChooser : MonoBehaviour
 			}
 		}
 
-		Debug.Log("Start the game!!!");
+		StateMachine.Instance.SetState(new GameState("Level1"));
 	}
 }
