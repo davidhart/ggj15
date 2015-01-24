@@ -32,8 +32,6 @@ public class EntryPoint : MonoBehaviour
 
 		RectTransform screenTransform = screen.GetComponent<RectTransform>();
 		screenTransform.SetParent(uiCanvasRoot.transform, false);
-
-
 	}
 
 	void DestroyScreen( string screenid )
@@ -48,6 +46,9 @@ public class EntryPoint : MonoBehaviour
 	void Initialise()
 	{
 		actionQueue = new ActionQueue();
+
+		var fireManagerGO = new GameObject( "FireManager" );
+		fireManagerGO.AddComponent< FireManager >();
 	}
 
 	void Update()

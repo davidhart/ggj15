@@ -12,8 +12,8 @@ public class TileDefinition : MonoBehaviour
 {
 	public eTileType Type;
 
-	public int X { get { return Mathf.FloorToInt( gameObject.transform.position.x ); } }
-	public int Z { get { return Mathf.FloorToInt( gameObject.transform.position.z ); } }
+	public int X { get { return Mathf.FloorToInt( gameObject.transform.position.x + 0.5f ); } }
+	public int Z { get { return Mathf.FloorToInt( gameObject.transform.position.z + 0.5f ); } }
 
 	void SnapToGrid()
 	{
