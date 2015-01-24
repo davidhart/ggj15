@@ -6,7 +6,7 @@ public class ActionQueue
 {
 	public static ActionQueue Instance { get; private set; }
 
-	List< ActionBase > Actions = new List< ActionBase >();
+	Queue< ActionBase > Actions = new Queue< ActionBase >();
 
 	public ActionQueue()
 	{
@@ -15,16 +15,23 @@ public class ActionQueue
 
 	public void AddToQueue( ActionBase newAction )
 	{
-		Actions.Add( newAction );
+		Actions.Enqueue( newAction );
 	}
-
-	public void Execute()
+	
+	public void Update()
 	{
-		foreach( var action in Actions )
+		if( Actions.Count == 0 )
+			return;
+
+		var currentAction = Actions.Peek();
+		if( !currentAction.Started )
 		{
-			action.Execute();
+			currentAction.Start();
 		}
 
-		Actions.Clear();
+		if( currentAction.IsDone() )
+		{
+			Actions.Dequeue();
+		}
 	}
 }

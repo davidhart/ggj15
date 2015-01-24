@@ -3,8 +3,13 @@ using System.Collections;
 
 public class ActionRotateRight : ActionBase
 {
-	public override void Execute()
+	protected override void Execute()
 	{
 		Character.Instance.RotateRight();
+	}
+
+	public override bool IsDone()
+	{
+		return !Character.Instance.IsAnimating();
 	}
 }

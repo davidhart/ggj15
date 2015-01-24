@@ -33,4 +33,12 @@ public class TileDefinition : MonoBehaviour
 		if( !Application.isPlaying )
 			SnapToGrid();
 	}
+
+	public bool IsWalkable()
+	{
+		if( Type == eTileType.Floor )
+			return true;
+
+		return false;
+	}
 }
