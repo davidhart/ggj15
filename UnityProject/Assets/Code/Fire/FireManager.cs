@@ -140,12 +140,16 @@ public class FireManager : MonoBehaviour
 		if( newFires[ X, Z ] )
 			return;
 
+		if( FireManager.Instance.ContainsFire( X, Z ) )
+			return;
+
 		var tileDefinition = Level.Instance.GetTileAtLocation( X, Z );
 		if( tileDefinition == null )
 			return;
 
 		if( !tileDefinition.IsWalkable() )
 			return;
+
 
 		newFires[ X, Z ] = true;
 	}
