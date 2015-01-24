@@ -70,6 +70,8 @@ public class IngameController : MonoBehaviour
 			}
 
 			FireManager.Instance.FireSpreads();
+
+			Timer.ResetTimer(timerDuration);
 		}
 	}
 
