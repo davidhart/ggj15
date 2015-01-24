@@ -14,6 +14,8 @@ public class InputChooser : MonoBehaviour
 
 	void Start ()
 	{
+		ActivePlayers.Instance.Clear();
+
 		foreach(InputChooserUI ui in inputChooserUI)
 		{
 			ui.SetInactive();
@@ -77,6 +79,14 @@ public class InputChooser : MonoBehaviour
 
 	void StartTheGame()
 	{
-		Debug.Log("Start the game!!!");
+		foreach(InputChooserUI ui in inputChooserUI)
+		{
+			if (ui.device != null)
+			{
+				ActivePlayers.Instance.Add(ui.device);
+			}
+		}
+
+		StateMachine.Instance.SetState(new GameState("Level1"));
 	}
 }

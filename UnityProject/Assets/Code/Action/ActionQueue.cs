@@ -1,29 +1,37 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 public class ActionQueue
 {
-	public static ActionQueue Instance { get; private set; }
+	public static ActionQueue Instance { get { return instance; } }
+	public System.Action OnQueueChanged;
 
-	Queue< ActionBase > Actions = new Queue< ActionBase >();
+	private static ActionQueue instance = new ActionQueue();
 
-	public ActionQueue()
+	List< ActionBase > actions = new List< ActionBase >();
+
+	public List < ActionBase > Actions
 	{
-		Instance = this;
+		get { return actions; }
 	}
+
+	private int currentActionIndex = 0;
 
 	public void AddToQueue( ActionBase newAction )
 	{
-		Actions.Enqueue( newAction );
+		actions.Add( newAction );
+
+		if (OnQueueChanged != null)
+			OnQueueChanged();
 	}
 	
 	public void Update()
 	{
-		if( Actions.Count == 0 )
+		if (currentActionIndex >= actions.Count)
 			return;
 
-		var currentAction = Actions.Peek();
+		var currentAction = actions[currentActionIndex];
 		if( !currentAction.Started )
 		{
 			currentAction.Start();
@@ -31,7 +39,21 @@ public class ActionQueue
 
 		if( currentAction.IsDone() )
 		{
-			Actions.Dequeue();
+			currentActionIndex++;
 		}
+	}
+
+	public void Reset()
+	{
+		currentActionIndex = 0;
+		actions.Clear();
+
+		if (OnQueueChanged != null)
+			OnQueueChanged();
+	}
+
+	public bool Done()
+	{
+		return currentActionIndex >= actions.Count;
 	}
 }

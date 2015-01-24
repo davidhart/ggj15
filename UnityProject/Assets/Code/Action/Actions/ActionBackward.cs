@@ -8,6 +8,10 @@ public class ActionBackward : ActionBase
 		Character.Instance.MoveBackward();
 	}
 
+	public override string Name()
+	{
+		return "Backward";
+	}
 	public override bool IsDone()
 	{
 		return !Character.Instance.IsAnimating();

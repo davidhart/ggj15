@@ -190,7 +190,7 @@ MonoBehaviour:
   - "\xA9Microsoft Corporation Xbox 360 Wired Controller"
   - Microsoft Wireless 360 Controller
   sensitivity: 3
-  deadZone: .150000006
+  deadZone: .300000012
   buttonMappings:
   - target: 1
     button: button 16

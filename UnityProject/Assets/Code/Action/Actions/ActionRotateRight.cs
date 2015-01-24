@@ -8,6 +8,10 @@ public class ActionRotateRight : ActionBase
 		Character.Instance.RotateRight();
 	}
 
+	public override string Name ()
+	{
+		return "Right Turn";
+	}
 	public override bool IsDone()
 	{
 		return !Character.Instance.IsAnimating();

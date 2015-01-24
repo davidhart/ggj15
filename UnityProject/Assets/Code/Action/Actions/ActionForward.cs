@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ActionForward : ActionBase
@@ -8,6 +8,10 @@ public class ActionForward : ActionBase
 		Character.Instance.MoveForward();
 	}
 
+	public override string Name ()
+	{
+		return "Forward";
+	}
 	public override bool IsDone()
 	{
 		return !Character.Instance.IsAnimating();
