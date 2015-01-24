@@ -12,7 +12,7 @@ public class InputManager : MonoBehaviour {
 	
 	bool keyboardInitialized = false;
 	int initalizedJoystickCount = 0;
-	
+
 	void Start()
 	{
 		inputDeviceConfigs = GetComponentsInChildren<InputDeviceConfig>();
