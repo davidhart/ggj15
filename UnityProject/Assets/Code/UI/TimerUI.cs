@@ -13,7 +13,7 @@ public class TimerUI : MonoBehaviour {
 	public System.Action OnTimerCountdown;
 
 	bool lockOutTimerCountdown = false;
-	const bool timerEnabled = false;
+	const bool timerEnabled = true;
 
 	public float Ratio()
 	{
