@@ -1,0 +1,127 @@
+fileFormatVersion: 2
+guid: 973c548e8a3f249fc83d4bbc5c1588b3
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Inside Corner Double 1x1x3
+    100004: Inside Corner Quadruple 1x1x3
+    100006: Inside Corner Single 1x1x3
+    100008: Inside Door Frame 1x1x3
+    100010: Inside Floor 1x1x0
+    100012: Inside Wall 1x1x3
+    100014: Outside Corner Double 1x1x3
+    100016: Outside Corner Quadruple 1x1x3
+    100018: Outside Corner Single 1x1x3
+    100020: Outside Wall 1x1x3
+    100022: Outside Window 1x1x3
+    100024: Outside Window Left 1x1x3
+    100026: Outside Window Right 1x1x3
+    400000: //RootNode
+    400002: Inside Corner Double 1x1x3
+    400004: Inside Corner Quadruple 1x1x3
+    400006: Inside Corner Single 1x1x3
+    400008: Inside Door Frame 1x1x3
+    400010: Inside Floor 1x1x0
+    400012: Inside Wall 1x1x3
+    400014: Outside Corner Double 1x1x3
+    400016: Outside Corner Quadruple 1x1x3
+    400018: Outside Corner Single 1x1x3
+    400020: Outside Wall 1x1x3
+    400022: Outside Window 1x1x3
+    400024: Outside Window Left 1x1x3
+    400026: Outside Window Right 1x1x3
+    2300000: Inside Corner Double 1x1x3
+    2300002: Inside Corner Quadruple 1x1x3
+    2300004: Inside Corner Single 1x1x3
+    2300006: Inside Door Frame 1x1x3
+    2300008: Inside Floor 1x1x0
+    2300010: Inside Wall 1x1x3
+    2300012: Outside Corner Double 1x1x3
+    2300014: Outside Corner Quadruple 1x1x3
+    2300016: Outside Corner Single 1x1x3
+    2300018: Outside Wall 1x1x3
+    2300020: Outside Window 1x1x3
+    2300022: Outside Window Left 1x1x3
+    2300024: Outside Window Right 1x1x3
+    3300000: Inside Corner Double 1x1x3
+    3300002: Inside Corner Quadruple 1x1x3
+    3300004: Inside Corner Single 1x1x3
+    3300006: Inside Door Frame 1x1x3
+    3300008: Inside Floor 1x1x0
+    3300010: Inside Wall 1x1x3
+    3300012: Outside Corner Double 1x1x3
+    3300014: Outside Corner Quadruple 1x1x3
+    3300016: Outside Corner Single 1x1x3
+    3300018: Outside Wall 1x1x3
+    3300020: Outside Window 1x1x3
+    3300022: Outside Window Left 1x1x3
+    3300024: Outside Window Right 1x1x3
+    4300000: Inside Floor 1x1x0
+    4300002: Inside Wall 1x1x3
+    4300004: Outside Wall 1x1x3
+    4300006: Inside Corner Quadruple 1x1x3
+    4300008: Inside Door Frame 1x1x3
+    4300010: Inside Corner Double 1x1x3
+    4300012: Outside Corner Double 1x1x3
+    4300014: Inside Corner Single 1x1x3
+    4300016: Outside Corner Single 1x1x3
+    4300018: Outside Corner Quadruple 1x1x3
+    4300020: Outside Window 1x1x3
+    4300022: Outside Window Left 1x1x3
+    4300024: Outside Window Right 1x1x3
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 1
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
