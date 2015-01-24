@@ -23,6 +23,8 @@ public class FireManager : MonoBehaviour
 
 	GameObject fireResource;
 
+	List<GameObject> fireGameObjects = new List<GameObject>();
+
 	void Start()
 	{
 		Instance = this;
@@ -129,5 +131,23 @@ public class FireManager : MonoBehaviour
 			return;
 
 		newFires[ X, Z ] = true;
+	}
+
+	public void KillallFires()
+	{
+		int maxX = Level.Instance.BoundsX;
+		int maxZ = Level.Instance.BoundsZ;
+
+		for( int X = 0; X < maxX; X++ )
+		{
+			for( int Z = 0; Z < maxZ; Z++ )
+			{
+				if( Fires[ X, Z ] != null )
+				{
+					GameObject.Destroy(Fires[X, Z].gameObject);
+					Fires[X, Z] = null;
+				}
+			}
+		}
 	}
 }

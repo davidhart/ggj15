@@ -64,4 +64,10 @@ public class Level : MonoBehaviour
 
 		return FireManager.Instance.ContainsFire( X, Z );
 	}
+
+	public void UnloadLevel()
+	{
+		GameObject.Destroy(gameObject);
+
+	}
 }

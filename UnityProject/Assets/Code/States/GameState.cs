@@ -19,10 +19,19 @@ public class GameState : BaseState
 	public override void Exit()
 	{
 		UIRoot.Instance.DestroyScreen("InGame");
+
+		Level.Instance.UnloadLevel();
+
+		FireManager.Instance.KillallFires();
 	}
 
 	public override void Update()
 	{
 		ActionQueue.Instance.Update();
+
+		if (Character.Instance.IsInFire())
+		{
+			StateMachine.Instance.SetState(new GameOverState());
+		}
 	}
 }
