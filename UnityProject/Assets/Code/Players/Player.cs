@@ -12,7 +12,7 @@ public class Player
 	int selectionIndex = 0;
 	int stickDirection = 0;
 	float timeInDirection = 0;
-	const float tickTime = 0.2f;
+	const float tickTime = 0.45f;
 
 	public System.Action onSelectionChanged;
 	public System.Action onSelectionLockedIn;
