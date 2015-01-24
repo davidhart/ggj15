@@ -15,6 +15,11 @@ public class TileDefinition : MonoBehaviour
 	public int X { get { return Mathf.FloorToInt( gameObject.transform.position.x + 0.5f ); } }
 	public int Z { get { return Mathf.FloorToInt( gameObject.transform.position.z + 0.5f ); } }
 
+	void OnEnable()
+	{
+		gameObject.isStatic = true;
+	}
+
 	void SnapToGrid()
 	{
 		Vector3 newPosition = new Vector3( X, 0.0f, Z );
