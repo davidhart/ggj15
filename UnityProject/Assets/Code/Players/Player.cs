@@ -1,6 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ePlayerControlMode
+{
+	ControllerSelect,
+	SlotMachine,
+	Random
+}
+
 public class Player
 {
 	InputDevice device;
@@ -11,13 +18,17 @@ public class Player
 
 	int selectionIndex = 0;
 	int stickDirection = 0;
-	float timeInDirection = 0;
-	const float tickTime = 0.45f;
+	float timeSinceTick = 0;
+	const float controllerTickSpeed = 0.35f;
+	const float slotTickSpeed = 0.25f;
+	const float randomTickSpeed = 0.25f;
 
 	public System.Action onSelectionChanged;
 	public System.Action onSelectionLockedIn;
 	public System.Action onSelectionUnlocked;
 	public System.Action onCardsPopulated;
+
+	private ePlayerControlMode controlMode = ePlayerControlMode.ControllerSelect;
 
 	public Player(InputDevice device)
 	{
@@ -39,21 +50,39 @@ public class Player
 			return;
 		}
 
+		switch (controlMode)
+		{
+		case ePlayerControlMode.ControllerSelect:
+			HandleInputPlayerSelectController();
+			break;
+
+		case ePlayerControlMode.SlotMachine:
+			HandleInputSlotMachine();
+			break;
+
+		case ePlayerControlMode.Random:
+			HandleInputRandom();
+			break;
+		}
+	}
+
+	private void HandleInputPlayerSelectController()
+	{
 		if (device.axes[0] < 0.0f)
 		{
 			if (stickDirection != -1)
 			{
 				MoveSelectionLeft();
 				stickDirection = -1;
-				timeInDirection = 0.0f;
+				timeSinceTick = 0.0f;
 			}
 			else
 			{
-				timeInDirection += Time.deltaTime;
-
-				while (timeInDirection > tickTime)
+				timeSinceTick += Time.deltaTime;
+				
+				while (timeSinceTick > controllerTickSpeed)
 				{
-					timeInDirection -= tickTime;
+					timeSinceTick -= controllerTickSpeed;
 					MoveSelectionLeft();
 				}
 			}
@@ -64,15 +93,15 @@ public class Player
 			{
 				MoveSelectionRight();
 				stickDirection = 1;
-				timeInDirection = 0.0f;
+				timeSinceTick = 0.0f;
 			}
 			else
 			{
-				timeInDirection += Time.deltaTime;
-
-				while (timeInDirection > tickTime)
+				timeSinceTick += Time.deltaTime;
+				
+				while (timeSinceTick > controllerTickSpeed)
 				{
-					timeInDirection -= tickTime;
+					timeSinceTick -= controllerTickSpeed;
 					MoveSelectionRight();
 				}
 			}
@@ -80,6 +109,35 @@ public class Player
 		else
 		{
 			stickDirection = 0;
+		}
+	}
+
+	private void HandleInputSlotMachine()
+	{
+		timeSinceTick += Time.deltaTime;
+
+		while(timeSinceTick > slotTickSpeed)
+		{
+			MoveSelectionRight();
+			timeSinceTick -= slotTickSpeed;
+		}
+	}
+
+	private void HandleInputRandom()
+	{
+		timeSinceTick += Time.deltaTime;
+
+		while(timeSinceTick > randomTickSpeed)
+		{
+			int random;
+
+			do
+			{
+				random = Random.Range(0, availableActions.Count);
+			} while (random == selectionIndex);
+			SetSelection(random);
+
+			timeSinceTick -= randomTickSpeed;
 		}
 	}
 
@@ -110,8 +168,7 @@ public class Player
 
 		onCardsPopulated();
 
-		selectionIndex = 0;
-		onSelectionChanged();
+		SetSelection(0);
 	}
 
 	private void MoveSelectionLeft()
@@ -135,6 +192,12 @@ public class Player
 			selectionIndex = 0;
 		}
 
+		onSelectionChanged();
+	}
+
+	private void SetSelection(int index)
+	{
+		selectionIndex = index;
 		onSelectionChanged();
 	}
 

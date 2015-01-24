@@ -18,10 +18,13 @@ public class PlayerCardSelectUI : MonoBehaviour
 
 	public void OnDestroy()
 	{
-		player.onSelectionChanged -= OnSelectionChanged;
-		player.onSelectionLockedIn -= OnSelectionLockedIn;
-		player.onSelectionUnlocked -= OnSelectionUnlocked;
-		player.onCardsPopulated -= OnCardsPopulated;
+		if (player != null)
+		{
+			player.onSelectionChanged -= OnSelectionChanged;
+			player.onSelectionLockedIn -= OnSelectionLockedIn;
+			player.onSelectionUnlocked -= OnSelectionUnlocked;
+			player.onCardsPopulated -= OnCardsPopulated;
+		}
 	}
 
 	public void OnSelectionChanged()
