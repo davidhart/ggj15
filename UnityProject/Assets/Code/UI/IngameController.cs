@@ -2,9 +2,14 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-public class IngamePlayersController : MonoBehaviour
+public class IngameController : MonoBehaviour
 {
 	public List<PlayerCardSelectUI> PlayerCardUI = new List<PlayerCardSelectUI>();
+	public TimerUI Timer;
+
+	float timerDuration = 10.0f;
+	float timerDecayRate = 1.0f;
+	float timerMinDuration = 5.0f;
 
 	public void Start()
 	{
@@ -16,7 +21,7 @@ public class IngamePlayersController : MonoBehaviour
 			}
 			else
 			{
-				PlayerCardUI[i].transform.parent.parent.gameObject.SetActive(false);
+				PlayerCardUI[i].gameObject.SetActive(false);
 			}
 		}
 
@@ -24,6 +29,15 @@ public class IngamePlayersController : MonoBehaviour
 		{
 			player.PopulateActions();
 		}
+
+		Timer.OnTimerCountdown += OnTimerCountdown;
+
+		Timer.ResetTimer(timerDuration);
+	}
+
+	public void OnDestroy()
+	{
+		Timer.OnTimerCountdown -= OnTimerCountdown;
 	}
 
 	public void Update()
@@ -44,6 +58,26 @@ public class IngamePlayersController : MonoBehaviour
 			}
 
 			FireManager.Instance.FireSpreads();
+		}
+	}
+
+	private void OnTimerCountdown()
+	{
+		ForceRandomInputsForRemainingPlayers();
+		//FireManager.Instance.FireSpreads();
+		timerDuration -= timerDecayRate;
+		timerDuration = Mathf.Max(timerMinDuration, timerDuration);
+		Timer.ResetTimer(timerDuration);
+	}
+
+	private void ForceRandomInputsForRemainingPlayers()
+	{
+		foreach(Player player in ActivePlayers.Instance.Players)
+		{
+			if (player.SelectionLockedIn == false)
+			{
+				player.LockInSelection();
+			}
 		}
 	}
 }

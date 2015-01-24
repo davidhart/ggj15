@@ -42,11 +42,7 @@ public class Player
 
 		if ( device.GetButtonDown( ButtonType.Action1 ) )
 		{
-			ActionQueue.Instance.AddToQueue(SelectedAction);
-
-			selectionLockedIn = true;
-
-			onSelectionLockedIn();
+			LockInSelection();
 			return;
 		}
 
@@ -204,5 +200,14 @@ public class Player
 	public bool SelectionLockedIn
 	{
 		get { return selectionLockedIn; }
+	}
+
+	public void LockInSelection()
+	{
+		ActionQueue.Instance.AddToQueue(SelectedAction);
+		
+		selectionLockedIn = true;
+		
+		onSelectionLockedIn();
 	}
 }

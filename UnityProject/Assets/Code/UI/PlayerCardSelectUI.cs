@@ -6,6 +6,7 @@ public class PlayerCardSelectUI : MonoBehaviour
 {
 	private List<CardUI> Cards = new List<CardUI>();
 	private GameObject CardSlotPrefab;
+	public RectTransform CardTransformParent;
 
 	private Player player;
 
@@ -24,21 +25,20 @@ public class PlayerCardSelectUI : MonoBehaviour
 
 		CardSlotPrefab = Resources.Load("UI/CardLarge") as GameObject;
 		
-		HorizontalLayoutGroup group = gameObject.AddComponent<HorizontalLayoutGroup>();
+		HorizontalLayoutGroup group = CardTransformParent.gameObject.AddComponent<HorizontalLayoutGroup>();
 		group.spacing = itemSpacing;
 		group.childAlignment = TextAnchor.MiddleCenter;
-		RectTransform thisTransform = GetComponent<RectTransform>();
 		float width = NumberOfCardSlots * itemWidth + (NumberOfCardSlots - 1) * itemSpacing;
 		
-		thisTransform.offsetMin = new Vector2(-width / 2.0f, -ItemHeight);
-		thisTransform.offsetMax = new Vector2(width / 2.0f, 0.0f);
+		CardTransformParent.offsetMin = new Vector2(-width / 2.0f, -ItemHeight);
+		CardTransformParent.offsetMax = new Vector2(width / 2.0f, 0.0f);
 		
 		for (int i = 0; i < NumberOfCardSlots; ++i)
 		{
 			GameObject card = GameObject.Instantiate(CardSlotPrefab) as GameObject;
 			
 			RectTransform cardTransform = card.GetComponent<RectTransform>();
-			cardTransform.SetParent(transform, false);
+			cardTransform.SetParent(CardTransformParent, false);
 			
 			Cards.Add(card.GetComponent<CardUI>());
 		}
