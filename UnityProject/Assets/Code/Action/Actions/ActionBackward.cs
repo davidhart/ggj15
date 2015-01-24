@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ActionBackward : ActionBase
 {
-	public override void Execute()
+	protected override void Execute()
 	{
 		Character.Instance.MoveBackward();
 	}
@@ -11,5 +11,9 @@ public class ActionBackward : ActionBase
 	public override string Name()
 	{
 		return "Backward";
+	}
+	public override bool IsDone()
+	{
+		return !Character.Instance.IsAnimating();
 	}
 }

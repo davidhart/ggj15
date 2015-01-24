@@ -9,6 +9,8 @@ public class EntryPoint : MonoBehaviour
 
 	private List<GameObject> loadedScreens = new List<GameObject>();
 
+	ActionQueue actionQueue;
+
 	void Start()
 	{
 		ActivePlayers.Instance.Add(InputManager.inputDevices[0]);
@@ -47,6 +49,11 @@ public class EntryPoint : MonoBehaviour
 
 	void Initialise()
 	{
-		new ActionQueue();
+		actionQueue = new ActionQueue();
+	}
+
+	void Update()
+	{
+		actionQueue.Update();
 	}
 }

@@ -33,9 +33,15 @@ public class IngamePlayersController : MonoBehaviour
 			player.UpdateInput();
 		}
 
-		if (ActivePlayers.Instance.Players.All(q=>q.SelectionLockedIn) )
+		if (ActivePlayers.Instance.Players.All(q=>q.SelectionLockedIn) && ActionQueue.Instance.Done())
 		{
-			Debug.Log ( "Reset when the commands have processed! " );
+			ActionQueue.Instance.Reset();
+
+			foreach(Player player in ActivePlayers.Instance.Players)
+			{
+				player.ConsumeSelectedAction();
+				player.PopulateActions();
+			}
 		}
 	}
 }

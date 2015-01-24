@@ -97,7 +97,7 @@ public class Player
 	{
 		availableActions.RemoveAt(selectionIndex);
 		selectionIndex = 0;
-
+		selectionLockedIn = false;
 		onSelectionUnlocked();
 	}
 

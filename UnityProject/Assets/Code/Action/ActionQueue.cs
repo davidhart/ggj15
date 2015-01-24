@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,6 +9,12 @@ public class ActionQueue
 
 	List< ActionBase > actions = new List< ActionBase >();
 
+	public List < ActionBase > Actions
+	{
+		get { return actions; }
+	}
+
+	private int currentActionIndex = 0;
 
 	public ActionQueue()
 	{
@@ -19,21 +25,35 @@ public class ActionQueue
 	{
 		actions.Add( newAction );
 
-		OnCardQueued();
+		if (OnCardQueued != null)
+			OnCardQueued();
 	}
-
-	public void Execute()
+	
+	public void Update()
 	{
-		foreach( var action in actions )
+		if (currentActionIndex >= actions.Count)
+			return;
+
+		var currentAction = actions[currentActionIndex];
+		if( !currentAction.Started )
 		{
-			action.Execute();
+			currentAction.Start();
 		}
 
+		if( currentAction.IsDone() )
+		{
+			currentActionIndex++;
+		}
+	}
+
+	public void Reset()
+	{
+		currentActionIndex = 0;
 		actions.Clear();
 	}
 
-	public List<ActionBase> Actions
+	public bool Done()
 	{
-		get { return actions; }
+		return currentActionIndex >= actions.Count;
 	}
 }

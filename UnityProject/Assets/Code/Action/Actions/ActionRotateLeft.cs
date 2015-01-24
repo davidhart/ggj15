@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ActionRotateLeft : ActionBase
 {
-	public override void Execute()
+	protected override void Execute()
 	{
 		Character.Instance.RotateLeft();
 	}
@@ -11,5 +11,9 @@ public class ActionRotateLeft : ActionBase
 	public override string Name ()
 	{
 		return "Left Turn";
+	}
+	public override bool IsDone()
+	{
+		return !Character.Instance.IsAnimating();
 	}
 }
