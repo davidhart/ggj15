@@ -15,26 +15,26 @@ public class Character : MonoBehaviour
 		Instance = this;
 	}
 
-	void MoveForward()
+	public void MoveForward()
 	{
 		gameObject.transform.position += gameObject.transform.rotation * new Vector3( 0.0f, 0.0f, 1.0f );
 	}
 
-	void MoveBackward()
+	public void MoveBackward()
 	{
 		gameObject.transform.position -= gameObject.transform.rotation * new Vector3( 0.0f, 0.0f, 1.0f );
 	}
 
-	void RotateLeft()
+	public void RotateLeft()
 	{
-		Rotation++;
+		Rotation--;
 
 		UpdateRotation();
 	}
 
-	void RotateRight()
+	public void RotateRight()
 	{
-		Rotation--;
+		Rotation++;
 
 		UpdateRotation();
 	}
@@ -53,15 +53,18 @@ public class Character : MonoBehaviour
 	void Update()
 	{
 		if( Input.GetKeyDown( KeyCode.A ) )
-			RotateLeft();
+			ActionQueue.Instance.AddToQueue( new ActionRotateLeft() );
 
 		if( Input.GetKeyDown( KeyCode.D ) )
-			RotateRight();
+			ActionQueue.Instance.AddToQueue( new ActionRotateRight() );
 
 		if( Input.GetKeyDown( KeyCode.W ) )
-			MoveForward();
+			ActionQueue.Instance.AddToQueue( new ActionForward() );
 
 		if( Input.GetKeyDown( KeyCode.S ) )
-			MoveBackward();
+			ActionQueue.Instance.AddToQueue( new ActionBackward() );
+
+		if( Input.GetKeyDown( KeyCode.Space ) )
+			ActionQueue.Instance.Execute();
 	}
 }

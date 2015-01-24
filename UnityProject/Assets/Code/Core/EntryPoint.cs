@@ -13,6 +13,8 @@ public class EntryPoint : MonoBehaviour
 	{
 		//LoadScreen( "PlayerConnect" );
 		LoadLevel( "Level1" );
+
+		Initialise();
 	}
 
 	void LoadLevel( string level )
@@ -39,5 +41,10 @@ public class EntryPoint : MonoBehaviour
 		GameObject.Destroy(screen);
 
 		loadedScreens.Remove(screen);
+	}
+
+	void Initialise()
+	{
+		new ActionQueue();
 	}
 }
