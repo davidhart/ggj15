@@ -149,8 +149,7 @@ public class Player
 
 	public void ConsumeSelectedAction()
 	{
-		availableActions.RemoveAt(selectionIndex);
-		selectionIndex = 0;
+		availableActions[selectionIndex] = null;
 		selectionLockedIn = false;
 		onSelectionUnlocked();
 	}
@@ -159,12 +158,18 @@ public class Player
 	{
 		while(availableActions.Count < MaxAvailableActions)
 		{
-			availableActions.Add( ActionGenerator.GenerateAction() );
+			availableActions.Add(null);
+		}
+
+		for (int i = 0; i < MaxAvailableActions; ++i)
+		{
+			if (availableActions[i] == null)
+			{
+				availableActions[i] = ActionGenerator.GenerateAction();
+			}
 		}
 
 		onCardsPopulated();
-
-		SetSelection(0);
 	}
 
 	private void MoveSelectionLeft()
