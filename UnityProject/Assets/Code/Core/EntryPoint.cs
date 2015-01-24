@@ -15,7 +15,7 @@ public class EntryPoint : MonoBehaviour
 	{
 		ActivePlayers.Instance.Add(InputManager.inputDevices[0]);
 		//ActivePlayers.Instance.Add(InputManager.inputDevices[1]);
-		ActivePlayers.Instance.Add(InputManager.inputDevices[1]);
+		//ActivePlayers.Instance.Add(InputManager.inputDevices[1]);
 		LoadScreen("InGame");
 		//LoadScreen( "PlayerConnect" );
 		LoadLevel( "Level1" );
