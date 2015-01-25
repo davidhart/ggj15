@@ -45,5 +45,10 @@ public class CardUI : MonoBehaviour
 	{
 		Animator.SetBool ("SelectionLockedOut", locked);
 	}
+
+	public void TriggerQueue()
+	{
+		Animator.SetTrigger("Queue");
+	}
 }
 

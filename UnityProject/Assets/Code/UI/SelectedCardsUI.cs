@@ -55,6 +55,11 @@ public class SelectedCardsUI : MonoBehaviour
 			if (i < ActionQueue.Instance.Actions.Count)
 			{
 				CardSlots[i].SetupForAction(ActionQueue.Instance.Actions[i]);
+
+				if ( i == ActionQueue.Instance.Actions.Count - 1 )
+				{
+					CardSlots[i].TriggerQueue();
+				}
 			}
 			else
 			{
