@@ -46,6 +46,9 @@ public class IngameController : MonoBehaviour
 
 		ActionQueue.Instance.Reset();
 		Character.Instance.RemoveAnimation();
+
+		foreach(Player player in ActivePlayers.Instance.Players)
+			player.PopulateActions();
 	}
 
 	void CheckForVictory()
