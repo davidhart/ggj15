@@ -93,7 +93,7 @@ public class FireManager : MonoBehaviour
 			FireSpreads();
 		}
 
-		float ratio = IngameController.Instance.Timer.Ratio();
+
 
 		if (isInGameOverAnim)
 		{
@@ -105,6 +105,7 @@ public class FireManager : MonoBehaviour
 		int index = 0;
 		foreach( var fireLight in fireObjects )
 		{
+			float ratio = IngameController.Instance.Timer.Ratio();
 			float multiplier = fireAnimations.TimerIntensity.Evaluate( ratio ) + 0.3f;
 
 			multiplier += fireAnimations.GameOverIntensity.Evaluate( gameOverRatio );

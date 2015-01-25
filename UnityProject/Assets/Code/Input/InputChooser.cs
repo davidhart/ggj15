@@ -8,13 +8,36 @@ public class InputChooser : MonoBehaviour
 	public int deviceID;
 
 	public List<int> availableDeviceIDs = new List<int>();
-	public List<InputChooserUI> inputChooserUI = new List<InputChooserUI>();
+	public List<RectTransform> inputChooserUITransforms = new List<RectTransform>();
+	private GameObject inputChooserUIPrefab;
+	private List<InputChooserUI> inputChooserUI = new List<InputChooserUI>();
 
 	public GameObject readyToGoObject;
 
 	void Start ()
 	{
 		ActivePlayers.Instance.Clear();
+
+		inputChooserUIPrefab = Resources.Load("UI/InputChooserUI") as GameObject;
+
+		for(int i = 0; i < inputChooserUITransforms.Count; ++i)
+		{
+			RectTransform rect = inputChooserUITransforms[i];
+			GameObject chooserInstance = GameObject.Instantiate(inputChooserUIPrefab) as GameObject;
+
+			RectTransform chooserRect = chooserInstance.GetComponent<RectTransform>();
+
+			chooserRect.SetParent(rect, false);
+			chooserRect.anchorMin = Vector2.zero;
+			chooserRect.anchorMax = Vector2.one;
+			chooserRect.offsetMin = Vector2.zero;
+			chooserRect.offsetMax = Vector2.zero;
+			chooserRect.localScale = Vector3.one;
+
+			InputChooserUI ui = chooserRect.GetComponent<InputChooserUI>();
+			ui.SetPlayerIndex(i + 1);
+			inputChooserUI.Add(ui);
+		}
 
 		foreach(InputChooserUI ui in inputChooserUI)
 		{
