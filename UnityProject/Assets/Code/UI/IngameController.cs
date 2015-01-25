@@ -73,6 +73,12 @@ public class IngameController : MonoBehaviour
 
 		if( isFinished )
 		{
+			foreach(Player player in ActivePlayers.Instance.Players)
+			{
+				if (player.SelectionLockedIn)
+					player.ConsumeSelectedAction();
+			}
+
 			StateMachine.instance.SetState( new VictoryState() );
 		}
 	}
