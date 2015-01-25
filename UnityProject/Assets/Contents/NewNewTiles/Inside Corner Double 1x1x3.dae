@@ -29,8 +29,8 @@
             </comments>
             <source_data>file:///Users/matthijs.janssens/Repositories/ggj15/UnityProject/Assets/Contents/NewNewTiles/Outside%20Corner%20Quadruple%201x1x3.dae</source_data>
         </contributor>
-        <created>2015-01-25T00:05:10Z</created>
-        <modified>2015-01-25T00:05:10Z</modified>
+        <created>2015-01-25T11:29:24Z</created>
+        <modified>2015-01-25T11:29:24Z</modified>
         <unit name="game" meter="1" />
         <up_axis>Y_UP</up_axis>
     </asset>
@@ -173,12 +173,12 @@
                 <vertices id="Geometry-mesh025-vertices">
                     <input semantic="POSITION" source="#Geometry-mesh025-positions" />
                 </vertices>
-                <polylist count="5" material="Material-Inside_Wall">
+                <polylist count="8" material="Material-Inside_Wall">
                     <input semantic="VERTEX" source="#Geometry-mesh025-vertices" offset="0" />
                     <input semantic="NORMAL" source="#Geometry-mesh025-normals" offset="1" />
                     <input semantic="TEXCOORD" source="#Geometry-mesh025-Texture" offset="2" set="0" />
-                    <vcount>4 4 4 4 4</vcount>
-                    <p>4 1 7 8 1 6 16 1 6 12 1 7 8 2 6 9 2 5 17 2 5 16 2 6 10 3 3 11 3 2 19 3 2 18 3 3 11 1 2 5 1 1 13 1 1 19 1 2 15 4 9 14 4 8 6 4 8 7 4 9</p>
+                    <vcount>4 4 4 4 4 4 4 4</vcount>
+                    <p>4 1 7 8 1 6 16 1 6 12 1 7 8 2 6 9 2 5 17 2 5 16 2 6 10 3 3 11 3 2 19 3 2 18 3 3 11 1 2 5 1 1 13 1 1 19 1 2 15 4 9 14 4 8 6 4 8 7 4 9 12 2 7 15 2 9 7 2 9 4 2 7 18 1 3 17 1 5 9 1 5 10 1 3 14 3 8 13 3 1 5 3 1 6 3 8</p>
                 </polylist>
                 <polylist count="4" material="Material-Top">
                     <input semantic="VERTEX" source="#Geometry-mesh025-vertices" offset="0" />

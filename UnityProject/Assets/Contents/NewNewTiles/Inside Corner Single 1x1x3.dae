@@ -27,10 +27,10 @@
                 Save 3ds Max Profile: Yes;
                 Formatted Arrays: Yes;
             </comments>
-            <source_data>file://Untitled</source_data>
+            <source_data>file:///Users/matthijs.janssens/Repositories/ggj15/UnityProject/Assets/Contents/NewNewTiles/Scene.dae</source_data>
         </contributor>
-        <created>2015-01-25T00:05:09Z</created>
-        <modified>2015-01-25T00:05:09Z</modified>
+        <created>2015-01-25T11:29:23Z</created>
+        <modified>2015-01-25T11:29:23Z</modified>
         <unit name="game" meter="1" />
         <up_axis>Y_UP</up_axis>
     </asset>
@@ -141,7 +141,7 @@
                         0 1 0
                         0 0 -1
                         -1 0 0
-                        1 0 0
+                        1 -0 0
                         0 0 1
                     </float_array>
                     <technique_common>
@@ -181,12 +181,12 @@
                 <vertices id="Geometry-mesh021-vertices">
                     <input semantic="POSITION" source="#Geometry-mesh021-positions" />
                 </vertices>
-                <polylist count="6" material="Material-Inside_Wall">
+                <polylist count="8" material="Material-Inside_Wall">
                     <input semantic="VERTEX" source="#Geometry-mesh021-vertices" offset="0" />
                     <input semantic="NORMAL" source="#Geometry-mesh021-normals" offset="1" />
                     <input semantic="TEXCOORD" source="#Geometry-mesh021-Texture" offset="2" set="0" />
-                    <vcount>4 4 4 4 4 4</vcount>
-                    <p>8 1 14 9 1 10 19 1 10 18 1 14 9 2 10 14 2 6 22 2 6 19 2 10 14 2 6 5 2 5 16 2 5 22 2 6 6 3 3 13 3 2 21 3 2 17 3 3 13 4 2 15 4 1 23 4 1 21 4 2 11 1 15 8 1 14 18 1 14 20 1 15</p>
+                    <vcount>4 4 4 4 4 4 4 4</vcount>
+                    <p>8 1 14 9 1 10 19 1 10 18 1 14 9 2 10 14 2 6 22 2 6 19 2 10 14 2 6 5 2 5 16 2 5 22 2 6 6 3 3 13 3 2 21 3 2 17 3 3 13 4 2 15 4 1 23 4 1 21 4 2 11 1 15 8 1 14 18 1 14 20 1 15 17 4 3 16 4 5 5 4 5 6 4 3 20 3 15 23 3 1 15 3 1 11 3 15</p>
                 </polylist>
                 <polylist count="3" material="Material-Top">
                     <input semantic="VERTEX" source="#Geometry-mesh021-vertices" offset="0" />

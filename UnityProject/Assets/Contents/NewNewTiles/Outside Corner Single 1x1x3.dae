@@ -29,8 +29,8 @@
             </comments>
             <source_data>file:///Users/matthijs.janssens/Repositories/ggj15/UnityProject/Assets/Contents/NewNewTiles/Inside%20Corner%20Single%201x1x3.dae</source_data>
         </contributor>
-        <created>2015-01-25T00:05:10Z</created>
-        <modified>2015-01-25T00:05:10Z</modified>
+        <created>2015-01-25T11:29:23Z</created>
+        <modified>2015-01-25T11:29:23Z</modified>
         <unit name="game" meter="1" />
         <up_axis>Y_UP</up_axis>
     </asset>
@@ -194,12 +194,12 @@
                     <vcount>4 4 4 4</vcount>
                     <p>3 1 4 4 1 5 12 1 5 11 1 4 4 2 5 7 2 6 15 2 6 12 2 5 7 2 6 1 2 7 9 2 7 15 2 6 5 1 8 3 1 4 11 1 4 13 1 8</p>
                 </polylist>
-                <polylist count="2" material="Material-Inside_Wall">
+                <polylist count="4" material="Material-Inside_Wall">
                     <input semantic="VERTEX" source="#Geometry-mesh022-vertices" offset="0" />
                     <input semantic="NORMAL" source="#Geometry-mesh022-normals" offset="1" />
                     <input semantic="TEXCOORD" source="#Geometry-mesh022-Texture" offset="2" set="0" />
-                    <vcount>4 4</vcount>
-                    <p>2 3 3 6 3 2 14 3 2 10 3 3 6 4 2 8 4 1 16 4 1 14 4 2</p>
+                    <vcount>4 4 4 4</vcount>
+                    <p>2 3 3 6 3 2 14 3 2 10 3 3 6 4 2 8 4 1 16 4 1 14 4 2 10 4 3 9 4 7 1 4 7 2 4 3 13 3 8 16 3 1 8 3 1 5 3 8</p>
                 </polylist>
                 <polylist count="3" material="Material-Top">
                     <input semantic="VERTEX" source="#Geometry-mesh022-vertices" offset="0" />

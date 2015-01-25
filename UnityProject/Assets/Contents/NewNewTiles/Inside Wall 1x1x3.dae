@@ -29,8 +29,8 @@
             </comments>
             <source_data>file:///Users/matthijs.janssens/Repositories/ggj15/UnityProject/Assets/Contents/NewNewTiles/Outside%20Corner%20Double%201x1x3.dae</source_data>
         </contributor>
-        <created>2015-01-25T00:05:11Z</created>
-        <modified>2015-01-25T00:05:11Z</modified>
+        <created>2015-01-25T11:29:25Z</created>
+        <modified>2015-01-25T11:29:25Z</modified>
         <unit name="game" meter="1" />
         <up_axis>Y_UP</up_axis>
     </asset>
@@ -125,13 +125,15 @@
                     </technique_common>
                 </source>
                 <source id="Geometry-mesh027-normals" name="normals">
-                    <float_array id="Geometry-mesh027-normals-array" count="9">
+                    <float_array id="Geometry-mesh027-normals-array" count="15">
                         0 1 0
                         0 0 1
                         0 0 -1
+                        1 0 -0
+                        -1 -0 -0
                     </float_array>
                     <technique_common>
-                        <accessor count="3" source="#Geometry-mesh027-normals-array" stride="3">
+                        <accessor count="5" source="#Geometry-mesh027-normals-array" stride="3">
                             <param name="X" type="float" />
                             <param name="Y" type="float" />
                             <param name="Z" type="float" />
@@ -159,12 +161,12 @@
                 <vertices id="Geometry-mesh027-vertices">
                     <input semantic="POSITION" source="#Geometry-mesh027-positions" />
                 </vertices>
-                <polylist count="2" material="Material-Inside_Wall">
+                <polylist count="4" material="Material-Inside_Wall">
                     <input semantic="VERTEX" source="#Geometry-mesh027-vertices" offset="0" />
                     <input semantic="NORMAL" source="#Geometry-mesh027-normals" offset="1" />
                     <input semantic="TEXCOORD" source="#Geometry-mesh027-Texture" offset="2" set="0" />
-                    <vcount>4 4</vcount>
-                    <p>6 1 2 7 1 1 11 1 1 10 1 2 5 2 6 4 2 5 8 2 5 9 2 6</p>
+                    <vcount>4 4 4 4</vcount>
+                    <p>6 1 2 7 1 1 11 1 1 10 1 2 5 2 6 4 2 5 8 2 5 9 2 6 9 3 6 11 3 1 7 3 1 5 3 6 10 4 2 8 4 5 4 4 5 6 4 2</p>
                 </polylist>
                 <polylist count="1" material="Material-Top">
                     <input semantic="VERTEX" source="#Geometry-mesh027-vertices" offset="0" />
