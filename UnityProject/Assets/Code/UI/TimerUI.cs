@@ -55,7 +55,7 @@ public class TimerUI : MonoBehaviour {
 			{
 				//lastSecond = Mathf.FloorToInt( TimerCurrent );
 				lastPlay -= 1.0f;
-				Audio.Instance.Start( eSound.FireAlarm );
+				Audio.Instance.PlayAudio( eSound.FireAlarm );
 			}
 		}
 

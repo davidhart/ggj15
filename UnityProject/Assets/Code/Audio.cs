@@ -39,7 +39,7 @@ public class Audio : MonoBehaviour
 		return null;
 	}
 
-	public void Start( eSound sound )
+	public void PlayAudio( eSound sound )
 	{
 		var clip = getClip( sound );
 		Source.PlayOneShot( clip );
