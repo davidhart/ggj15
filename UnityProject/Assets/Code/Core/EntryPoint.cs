@@ -15,6 +15,8 @@ public class EntryPoint : MonoBehaviour
 	{
 		var fireManagerGO = new GameObject( "FireManager" );
 		fireManagerGO.AddComponent< FireManager >();
+
+		new ProgressManager();
 	}
 
 	void Update()
