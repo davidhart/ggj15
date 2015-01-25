@@ -73,6 +73,8 @@ public class Character : MonoBehaviour
 	public int X { get { return Mathf.FloorToInt( gameObject.transform.position.x + 0.5f ); } }
 	public int Z { get { return Mathf.FloorToInt( gameObject.transform.position.z + 0.5f ); } }
 
+	const bool enableDebug = false;
+
 	void Awake()
 	{
 		Instance = this;
@@ -187,6 +189,9 @@ public class Character : MonoBehaviour
 
 	void Update()
 	{
+		if( !enableDebug )
+			return;
+
 		if( Input.GetKeyDown( KeyCode.A ) )
 			ActionQueue.Instance.AddToQueue( new ActionRotateLeft() );
 

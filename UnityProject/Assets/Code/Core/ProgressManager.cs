@@ -30,6 +30,8 @@ public class ProgressManager
 
 	public void NextLevel()
 	{
+		ActionGenerator.ResetDeck();
+
 		currentLevel++;
 
 		if( currentLevel >= levels.Count )
