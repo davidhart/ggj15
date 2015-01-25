@@ -14,7 +14,8 @@ public class VictoryState : BaseState
 	{
 		if ( InputManager.activeDevice.GetButtonDown(ButtonType.Action1) )
 		{
-			StateMachine.Instance.SetState(new SignInState());
+			//StateMachine.Instance.SetState(new SignInState());
+			ProgressManager.Instance.NextLevel();
 		}
 	}
 }

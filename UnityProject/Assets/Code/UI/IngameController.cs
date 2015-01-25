@@ -11,6 +11,7 @@ public class IngameController : MonoBehaviour
 
 	float timerDuration = 10.0f;
 	float timerDecayRate = 1.0f;
+	float timerNaturalDecayRate = 0.25f;
 	float timerMinDuration = 5.0f;
 
 	public void Start()
@@ -42,6 +43,12 @@ public class IngameController : MonoBehaviour
 	public void OnDestroy()
 	{
 		Timer.OnTimerCountdown -= OnTimerCountdown;
+
+		ActionQueue.Instance.Reset();
+		Character.Instance.RemoveAnimation();
+
+		foreach(Player player in ActivePlayers.Instance.Players)
+			player.PopulateActions();
 	}
 
 	void CheckForVictory()
@@ -74,6 +81,9 @@ public class IngameController : MonoBehaviour
 			}
 
 			FireManager.Instance.FireSpreads();
+
+			timerDuration -= timerNaturalDecayRate;
+			timerDuration = Mathf.Max(timerMinDuration, timerDuration);
 
 			Timer.ResetTimer(timerDuration);
 		}

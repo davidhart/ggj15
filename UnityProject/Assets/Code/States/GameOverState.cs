@@ -14,7 +14,7 @@ public class GameOverState : BaseState
 	{
 		if ( InputManager.activeDevice.GetButtonDown(ButtonType.Action1) )
 		{
-			StateMachine.Instance.SetState(new SignInState());
+			ProgressManager.Instance.Reset();
 		}
 	}
 }

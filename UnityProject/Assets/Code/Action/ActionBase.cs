@@ -5,6 +5,7 @@ public abstract class ActionBase
 {
 	protected abstract void Execute();
 	public abstract string Name();
+	public abstract int IconIndex();
 	public bool Started { get; private set; }
 
 	public abstract bool IsDone();
