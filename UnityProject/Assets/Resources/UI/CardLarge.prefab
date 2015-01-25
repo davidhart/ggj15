@@ -179,11 +179,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9a2db53fe733143eab36d23541643570, type: 3}
   - {fileID: 21300000, guid: e0ecf71ed09dc4410a8906f6b97826dd, type: 3}
   - {fileID: 21300000, guid: 27bfc2feec14a4d91b50037757f7c068, type: 3}
+  - {fileID: 21300000, guid: b33481db12d814fd69ba5cc10af926bd, type: 3}
   SpritesDesaturated:
   - {fileID: 21300000, guid: 4338a2b5b33b844d8985d40530edfcaf, type: 3}
   - {fileID: 21300000, guid: 97ed0b7bcbe76465fac93fd03bbaf936, type: 3}
   - {fileID: 21300000, guid: d32c9a74e9b6b467c8afabef3b3bad26, type: 3}
   - {fileID: 21300000, guid: db98f0e98ac604622a4ca98aed7824ab, type: 3}
+  - {fileID: 21300000, guid: 1a752f1135ac14d4b9c12baec4f52aae, type: 3}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
