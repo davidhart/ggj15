@@ -45,6 +45,7 @@ public class IngameController : MonoBehaviour
 		Timer.OnTimerCountdown -= OnTimerCountdown;
 
 		ActionQueue.Instance.Reset();
+		Character.Instance.RemoveAnimation();
 	}
 
 	void CheckForVictory()

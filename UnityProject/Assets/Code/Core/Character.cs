@@ -78,6 +78,16 @@ public class Character : MonoBehaviour
 		Instance = this;
 	}
 
+	public void RemoveAnimation()
+	{
+		var comp = GetComponent<CharacterAnimation>();
+
+		if( comp == null )
+			return;
+
+		GameObject.DestroyImmediate( comp );
+	}
+
 	public void MoveForward()
 	{
 		var targetPosition = gameObject.transform.position + ( gameObject.transform.rotation * new Vector3( 0.0f, 0.0f, 1.0f ) );
