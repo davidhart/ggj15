@@ -46,7 +46,7 @@ public class ProgressManager
 
 	public bool IsFinished()
 	{
-		currentLevel >= levels.Count;
+		return currentLevel >= levels.Count;
 	}
 }
 
