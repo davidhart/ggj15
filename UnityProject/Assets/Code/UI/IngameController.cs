@@ -43,6 +43,8 @@ public class IngameController : MonoBehaviour
 	public void OnDestroy()
 	{
 		Timer.OnTimerCountdown -= OnTimerCountdown;
+
+		ActionQueue.Instance.Reset();
 	}
 
 	void CheckForVictory()
