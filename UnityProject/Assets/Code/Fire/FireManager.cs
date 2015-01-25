@@ -31,6 +31,8 @@ public class FireManager : MonoBehaviour
 	private float gameOverAnimTimer = 0.0f;
 	private float gameOverAnimRate = 0.5f;
 
+	bool debugEnabled = false;
+
 	void Start()
 	{
 		Instance = this;
@@ -82,23 +84,26 @@ public class FireManager : MonoBehaviour
 
 	void Update()
 	{
-		if( Input.GetKeyDown( KeyCode.P ) )
-			OnStartLevel();
-
-		if( Input.GetKeyDown( KeyCode.F ) )
+		if( debugEnabled )
 		{
-			StartRandomFire();
-		}
+			if( Input.GetKeyDown( KeyCode.P ) )
+				OnStartLevel();
 
-		if( Input.GetKeyDown( KeyCode.G ) )
-		{
-			FireSpreads();
+			if( Input.GetKeyDown( KeyCode.F ) )
+			{
+				StartRandomFire();
+			}
+
+			if( Input.GetKeyDown( KeyCode.G ) )
+			{
+				FireSpreads();
+			}
 		}
 
 		if( IngameController.Instance == null )
 			return;
 
-		float ratio = IngameController.Instance.Timer.Ratio();
+
 
 		if (isInGameOverAnim)
 		{
@@ -110,6 +115,7 @@ public class FireManager : MonoBehaviour
 		int index = 0;
 		foreach( var fireLight in fireObjects )
 		{
+			float ratio = IngameController.Instance.Timer.Ratio();
 			float multiplier = fireAnimations.TimerIntensity.Evaluate( ratio ) + 0.3f;
 
 			multiplier += fireAnimations.GameOverIntensity.Evaluate( gameOverRatio );

@@ -43,7 +43,7 @@ public class ActionGenerator
 		currentDeck.Add( new ActionWater() );
 
 		int swapIndex0 = currentDeck.Count - 1;
-		int swapIndex1 = currentDeck.Count - Random.Range( 1, 6 );
+		int swapIndex1 = Random.Range( 0, 6 );
 
 		var tempCard = currentDeck[ swapIndex0 ];
 		currentDeck[ swapIndex0 ] = currentDeck[ swapIndex1 ];
