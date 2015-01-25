@@ -18,7 +18,7 @@ RenderSettings:
   m_FogDensity: .00999999978
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientLight: {r: .463235319, g: .463235319, b: .463235319, a: 1}
+  m_AmbientLight: {r: .258823544, g: .258823544, b: .258823544, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: .5
   m_FlareStrength: 1
@@ -1585,7 +1585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Music: {fileID: 8300000, guid: c1e329c24947b4fea94c750bca1fc3bf, type: 3}
-  FireAlarm: {fileID: 8300000, guid: 4edd6fe51079b4612a74d140fe67aed2, type: 3}
+  FireAlarm: {fileID: 8300000, guid: ee87e772ab20340b7b2f723063e29327, type: 3}
   Scream: {fileID: 8300000, guid: 14924d9bae7394b72a15f60765fc6077, type: 3}
   Source: {fileID: 1468128139}
 --- !u!4 &1468128141

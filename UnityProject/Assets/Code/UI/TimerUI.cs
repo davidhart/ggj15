@@ -31,6 +31,7 @@ public class TimerUI : MonoBehaviour {
 	}
 
 	int lastSecond = 0;
+	float lastPlay = 0.0f;
 
 	public void Update()
 	{
@@ -45,14 +46,19 @@ public class TimerUI : MonoBehaviour {
 			lockOutTimerCountdown = true;
 		}
 
+		lastPlay += Time.deltaTime;
 		if( TimeIsLow )
 		{
-			if( lastSecond != Mathf.FloorToInt( TimerCurrent ) )
+
+			if( lastPlay > 1.0f )
+			//if( lastSecond != Mathf.FloorToInt( TimerCurrent ) )
 			{
-				lastSecond = Mathf.FloorToInt( TimerCurrent );
+				//lastSecond = Mathf.FloorToInt( TimerCurrent );
+				lastPlay -= 1.0f;
 				Audio.Instance.Start( eSound.FireAlarm );
 			}
 		}
+
 
 		UpdateUI();
 	}
