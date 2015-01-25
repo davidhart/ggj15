@@ -24,9 +24,9 @@ public class ActionGenerator
 	
 	static void AddCards()
 	{
-		const int numForwards = 12;
-		const int numLeftTurns = 6;
-		const int numRightTurns = 6;
+		const int numForwards = 16;
+		const int numLeftTurns = 5;
+		const int numRightTurns = 5;
 
 		for( int index = 0; index < numForwards; index++ )
 			currentDeck.Add( new ActionForward() );
