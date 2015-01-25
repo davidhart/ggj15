@@ -27,6 +27,10 @@ public class FireManager : MonoBehaviour
 
 	public FireAnimations fireAnimations;
 
+	private bool isInGameOverAnim = true;
+	private float gameOverAnimTimer = 0.0f;
+	private float gameOverAnimRate = 0.5f;
+
 	void Start()
 	{
 		Instance = this;
@@ -89,11 +93,21 @@ public class FireManager : MonoBehaviour
 			FireSpreads();
 		}
 
+		float ratio = IngameController.Instance.Timer.Ratio();
+
+		if (isInGameOverAnim)
+		{
+			gameOverAnimTimer += Time.deltaTime * gameOverAnimRate;
+		}
+
+		float gameOverRatio = gameOverAnimTimer;
+
 		int index = 0;
 		foreach( var fireLight in fireObjects )
 		{
-			float ratio = IngameController.Instance.Timer.Ratio();
 			float multiplier = fireAnimations.TimerIntensity.Evaluate( ratio ) + 0.3f;
+
+			multiplier += fireAnimations.GameOverIntensity.Evaluate( gameOverRatio );
 
 			fireLight.FireLight.intensity = ( ( ( Mathf.PerlinNoise( index, Time.timeSinceLevelLoad * 3.0f ) * 0.3f ) ) + 0.2f ) * multiplier;
 
@@ -189,5 +203,14 @@ public class FireManager : MonoBehaviour
 		}
 
 		fireObjects.Clear();
+
+		isInGameOverAnim = false;
+		gameOverAnimTimer = 0.0f;
+	}
+
+	public void StartGameOverFire()
+	{
+		isInGameOverAnim = true;
+		gameOverAnimTimer = 0.0f;
 	}
 }

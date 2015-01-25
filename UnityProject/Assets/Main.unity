@@ -131,6 +131,106 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+  GameOverIntensity:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .0292211771
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: .060121268
+      value: 2.29825997
+      inSlope: 2.54958868
+      outSlope: 2.54958868
+      tangentMode: 0
+    - time: .15437679
+      value: 2.29890108
+      inSlope: -7.15494156
+      outSlope: -7.15494156
+      tangentMode: 0
+    - time: .225150138
+      value: 1.59582591
+      inSlope: .556707382
+      outSlope: .556707382
+      tangentMode: 0
+    - time: .30010131
+      value: 1.36650562
+      inSlope: 6.40034676
+      outSlope: 6.40034676
+      tangentMode: 0
+    - time: .376155019
+      value: 2.22323942
+      inSlope: -.262260437
+      outSlope: -.262260437
+      tangentMode: 0
+    - time: .42333588
+      value: 1.18266106
+      inSlope: -7.95662403
+      outSlope: -7.95662403
+      tangentMode: 0
+    - time: .482052267
+      value: 2.07113457
+      inSlope: 5.67018986
+      outSlope: 5.67018986
+      tangentMode: 0
+    - time: .543795943
+      value: 1.21479559
+      inSlope: 2.02655792
+      outSlope: 2.02655792
+      tangentMode: 0
+    - time: .590252757
+      value: 2.27578211
+      inSlope: .44554472
+      outSlope: .44554472
+      tangentMode: 0
+    - time: .644913852
+      value: 1.21473169
+      inSlope: -10.8718872
+      outSlope: -10.8718872
+      tangentMode: 0
+    - time: .691120386
+      value: 2.39217567
+      inSlope: .456571579
+      outSlope: .456571579
+      tangentMode: 0
+    - time: .733233333
+      value: 1.82799304
+      inSlope: 2.93195248
+      outSlope: 2.93195248
+      tangentMode: 0
+    - time: .778219283
+      value: 2.57895756
+      inSlope: -.282526016
+      outSlope: -.282526016
+      tangentMode: 0
+    - time: .823530376
+      value: 1.78208792
+      inSlope: -.834465027
+      outSlope: -.834465027
+      tangentMode: 0
+    - time: .860232294
+      value: 1.91820729
+      inSlope: 5.02467155
+      outSlope: 5.02467155
+      tangentMode: 0
+    - time: .894387662
+      value: 2.52421236
+      inSlope: 5.05566597
+      outSlope: 5.05566597
+      tangentMode: 0
+    - time: .946291506
+      value: 1.79275227
+      inSlope: -5.09500504
+      outSlope: -5.09500504
+      tangentMode: 0
+    - time: .983164668
+      value: 2.31029367
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!4 &21392851
 Transform:
   m_ObjectHideFlags: 0

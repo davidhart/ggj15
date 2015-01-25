@@ -4,11 +4,12 @@ using UnityEngine;
 public class GameOverState : BaseState
 {
 	private float delay = 0;
-	private float delayLockOut = 2.0f;
+	private float delayLockOut = 1.25f;
 
 	public override void Enter()
 	{
-		UIRoot.Instance.LoadScreen("GameOver");
+		//Already loaded in GameState :D
+		//UIRoot.Instance.LoadScreen("GameOver");
 	}
 
 	public override void Exit()

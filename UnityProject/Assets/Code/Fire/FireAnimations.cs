@@ -5,4 +5,5 @@ using System.Collections;
 public class FireAnimations : MonoBehaviour
 {
 	public AnimationCurve TimerIntensity;
+	public AnimationCurve GameOverIntensity;
 }
