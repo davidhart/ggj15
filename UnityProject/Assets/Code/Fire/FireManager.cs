@@ -53,6 +53,8 @@ public class FireManager : MonoBehaviour
 			int Z = Mathf.FloorToInt( fire.transform.position.z + 0.5f );
 			
 			Fires[ X, Z ] = fire;
+
+			fireObjects.Add( fire );
 		}
 	}
 
@@ -92,6 +94,9 @@ public class FireManager : MonoBehaviour
 		{
 			FireSpreads();
 		}
+
+		if( IngameController.Instance == null )
+			return;
 
 		float ratio = IngameController.Instance.Timer.Ratio();
 
@@ -212,5 +217,53 @@ public class FireManager : MonoBehaviour
 	{
 		isInGameOverAnim = true;
 		gameOverAnimTimer = 0.0f;
+	}
+
+	public void WaterAction( Vector3 worldPosition, Quaternion direction )
+	{
+		int X = Mathf.FloorToInt( worldPosition.x + 0.5f );
+		int Z = Mathf.FloorToInt( worldPosition.z + 0.5f );
+
+		int maxX = Level.Instance.BoundsX;
+		int maxZ = Level.Instance.BoundsZ;
+
+		for( int depth = 0; depth < 5; depth++ )
+		{
+			Vector3 dir = ( (float)depth * ( direction * new Vector3( 0.0f, 0.0f, 1.0f ) ) );
+
+			for( int width = -depth - 1; width <= depth + 1; width++ )
+			{
+				int dirX = Mathf.FloorToInt( dir.x + 0.5f );
+				int dirZ = Mathf.FloorToInt( dir.z + 0.5f );
+
+				int newX = X;
+				int newZ = Z;
+				if( dirX == 0 )
+				{
+					newX += width;
+					newZ += dirZ;
+				}
+				else
+				{
+					newX += dirX;
+					newZ += width;
+				}
+
+				if( newX < 0 || newX >= maxX )
+					continue;
+				if( newZ < 0 || newZ >= maxZ )
+					continue;
+				if( Fires[ newX, newZ ] == null )
+					continue;
+
+				Debug.Log ( string.Format( "water @ {0} {1}", newX, newZ ) );
+
+				fireObjects.Remove( Fires[ newX, newZ ] );
+				GameObject.Destroy( Fires[ newX, newZ ].gameObject );
+				Fires[ newX, newZ ] = null;
+			}
+		}
+
+		Debug.Log( "Fires remaining: " + fireObjects.Count );
 	}
 }

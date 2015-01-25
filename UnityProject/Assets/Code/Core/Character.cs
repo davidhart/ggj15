@@ -73,6 +73,8 @@ public class Character : MonoBehaviour
 	public int X { get { return Mathf.FloorToInt( gameObject.transform.position.x + 0.5f ); } }
 	public int Z { get { return Mathf.FloorToInt( gameObject.transform.position.z + 0.5f ); } }
 
+	public ParticleEmitter WaterParticleEmitter;
+
 	const bool enableDebug = false;
 
 	void Awake()
