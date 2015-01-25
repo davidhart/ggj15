@@ -10,6 +10,7 @@ GameObject:
   - 224: {fileID: 22400000}
   - 222: {fileID: 22200000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400036}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -118,6 +119,7 @@ GameObject:
   - 224: {fileID: 22400014}
   - 222: {fileID: 22200010}
   - 114: {fileID: 11400012}
+  - 114: {fileID: 11400030}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -199,6 +201,7 @@ GameObject:
   - 224: {fileID: 22400024}
   - 222: {fileID: 22200004}
   - 114: {fileID: 11400016}
+  - 114: {fileID: 11400022}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -232,6 +235,7 @@ GameObject:
   - 224: {fileID: 22400028}
   - 222: {fileID: 22200018}
   - 114: {fileID: 11400026}
+  - 114: {fileID: 11400032}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -296,6 +300,7 @@ GameObject:
   - 224: {fileID: 22400036}
   - 222: {fileID: 22200024}
   - 114: {fileID: 11400034}
+  - 114: {fileID: 11400028}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -313,6 +318,7 @@ GameObject:
   - 224: {fileID: 22400038}
   - 222: {fileID: 22200006}
   - 114: {fileID: 11400018}
+  - 114: {fileID: 11400024}
   m_Layer: 5
   m_Name: TimerText
   m_TagString: Untagged
@@ -329,6 +335,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22400040}
   - 114: {fileID: 11400010}
+  - 95: {fileID: 9500000}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -381,6 +388,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &9500000
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100040}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4af0ebf9d2cc8496c9c0ed34c2b5f4a6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -468,6 +490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimerText: {fileID: 11400018}
   TimerImage: {fileID: 11400014}
+  Animator: {fileID: 9500000}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -512,7 +535,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 0
   m_FillOrigin: 2
 --- !u!114 &11400016
@@ -579,6 +602,34 @@ MonoBehaviour:
   - {fileID: 11400004}
   - {fileID: 11400002}
   Timer: {fileID: 11400010}
+--- !u!114 &11400022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 5, y: -5}
+  m_UseGraphicAlpha: 1
+--- !u!114 &11400024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!114 &11400026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -605,6 +656,48 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: P2
+--- !u!114 &11400028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
+--- !u!114 &11400030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
+--- !u!114 &11400032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!114 &11400034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -631,6 +724,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: P4
+--- !u!114 &11400036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!114 &11400140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1042,8 +1149,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 141, y: 0}
-  m_SizeDelta: {x: 121, y: 1}
+  m_AnchoredPosition: {x: 143.699997, y: 0}
+  m_SizeDelta: {x: 92.6999969, y: 1}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22400040
 RectTransform:
@@ -1061,7 +1168,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -95, y: -62}
+  m_AnchoredPosition: {x: -133, y: -77}
   m_SizeDelta: {x: 190, y: 80}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22400098

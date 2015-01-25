@@ -6,9 +6,12 @@ public class TimerUI : MonoBehaviour {
 
 	public Text TimerText;
 	public Image TimerImage;
+	public Animator Animator;
 
 	float TimerLength = 0.0f;
 	float TimerCurrent = 0.0f;
+
+	float TimeLowFraction = 0.5f;
 
 	public System.Action OnTimerCountdown;
 
@@ -38,8 +41,6 @@ public class TimerUI : MonoBehaviour {
 		{
 			OnTimerCountdown();
 			lockOutTimerCountdown = true;
-
-			return;
 		}
 
 		UpdateUI();
@@ -47,8 +48,10 @@ public class TimerUI : MonoBehaviour {
 
 	public void UpdateUI()
 	{	
-		TimerText.text = Mathf.FloorToInt(TimerCurrent + 1.0f).ToString();
+		TimerText.text = Mathf.FloorToInt(Mathf.Max(0.0f, TimerCurrent + 1.0f)).ToString();
 		TimerImage.fillAmount = TimerCurrent / TimerLength;
+
+		Animator.SetBool("TimeLow", TimerCurrent / TimerLength < TimeLowFraction);
 	}
 
 	public void ResetTimer(float duration)
