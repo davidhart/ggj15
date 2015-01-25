@@ -43,5 +43,10 @@ public class ProgressManager
 			StateMachine.Instance.SetState( new GameState( levels[ currentLevel ] ) );
 		}
 	}
+
+	public bool IsFinished()
+	{
+		currentLevel >= levels.Count;
+	}
 }
 

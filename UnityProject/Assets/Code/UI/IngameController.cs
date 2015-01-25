@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -79,8 +80,19 @@ public class IngameController : MonoBehaviour
 					player.ConsumeSelectedAction();
 			}
 
-			StateMachine.instance.SetState( new VictoryState() );
+			UIRoot.Instance.StartCoroutine( VictoryTransition() );
+
+
 		}
+	}
+
+	public IEnumerator VictoryTransition()
+	{
+		UIRoot.Instance.LoadScreen("Victory");
+
+		return new WaitForSeconds(1.0f);
+
+		StateMachine.instance.SetState( new VictoryState() );
 	}
 
 	public void Update()

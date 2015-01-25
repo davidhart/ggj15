@@ -2,7 +2,8 @@ public class VictoryState : BaseState
 {
 	public override void Enter()
 	{
-		UIRoot.Instance.LoadScreen("Victory");
+		// Already loaded :D
+		//UIRoot.Instance.LoadScreen("Victory");
 	}
 	
 	public override void Exit()
