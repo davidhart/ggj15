@@ -36,6 +36,7 @@ public class GameState : BaseState
 		{	
 			if (Character.Instance.IsInFire())
 			{
+				Audio.Instance.Start( eSound.Scream );
 				UIRoot.Instance.StartCoroutine(GameOverCoroutine());
 				isExiting = true;
 			}
