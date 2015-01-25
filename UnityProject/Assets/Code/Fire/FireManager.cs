@@ -95,6 +95,9 @@ public class FireManager : MonoBehaviour
 			FireSpreads();
 		}
 
+		if( IngameController.Instance == null )
+			return;
+
 		float ratio = IngameController.Instance.Timer.Ratio();
 
 		if (isInGameOverAnim)

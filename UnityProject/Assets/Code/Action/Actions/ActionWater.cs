@@ -9,6 +9,8 @@ public class ActionWater : ActionBase
 	{
 		Character.Instance.WaterParticleEmitter.emit = true;
 		frameCountAtStart = Time.frameCount;
+
+		IngameController.Instance.Timer.timerEnabled = false;
 	}
 	
 	public override string Name ()
@@ -29,6 +31,8 @@ public class ActionWater : ActionBase
 
 			FireManager.Instance.WaterAction( Character.Instance.gameObject.transform.position,
 				Character.Instance.gameObject.transform.rotation );
+
+			IngameController.Instance.Timer.timerEnabled = true;
 
 			return true;
 		}
