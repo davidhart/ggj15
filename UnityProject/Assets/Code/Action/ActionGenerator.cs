@@ -39,6 +39,16 @@ public class ActionGenerator
 
 		Shuffle();
 
+		//	Add Water Action near the end of the deck.
+		currentDeck.Add( new ActionWater() );
+
+		int swapIndex0 = currentDeck.Count - 1;
+		int swapIndex1 = currentDeck.Count - Random.Range( 1, 6 );
+
+		var tempCard = currentDeck[ swapIndex0 ];
+		currentDeck[ swapIndex0 ] = currentDeck[ swapIndex1 ];
+		currentDeck[ swapIndex1 ] = tempCard;
+
 		DebugOutput();
 	}
 
