@@ -30,6 +30,8 @@ public class TimerUI : MonoBehaviour {
 		UpdateUI();
 	}
 
+	int lastSecond = 0;
+
 	public void Update()
 	{
 		if( !timerEnabled )
@@ -41,6 +43,15 @@ public class TimerUI : MonoBehaviour {
 		{
 			OnTimerCountdown();
 			lockOutTimerCountdown = true;
+		}
+
+		if( TimeIsLow )
+		{
+			if( lastSecond != Mathf.FloorToInt( TimerCurrent ) )
+			{
+				lastSecond = Mathf.FloorToInt( TimerCurrent );
+				Audio.Instance.Start( eSound.FireAlarm );
+			}
 		}
 
 		UpdateUI();
