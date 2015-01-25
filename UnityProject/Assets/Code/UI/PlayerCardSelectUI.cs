@@ -7,6 +7,8 @@ public class PlayerCardSelectUI : MonoBehaviour
 	private List<CardUI> Cards = new List<CardUI>();
 	private GameObject CardSlotPrefab;
 	public RectTransform CardTransformParent;
+	public Animator Animator;
+	public Text Title;
 
 	private Player player;
 
@@ -15,13 +17,19 @@ public class PlayerCardSelectUI : MonoBehaviour
 	const float itemWidth = 80.0f;
 	const float itemSpacing = 5.0f;
 
-	public void SetupForPlayer(Player player)
+	public bool TimeIsLow 
+	{
+		get; set;
+	}
+
+	public void SetupForPlayer(Player player, int playerNumber)
 	{
 		this.player = player;
 		player.onSelectionChanged += OnSelectionChanged;
 		player.onSelectionLockedIn += OnSelectionLockedIn;
 		player.onSelectionUnlocked += OnSelectionUnlocked;
 		player.onCardsPopulated += OnCardsPopulated;
+		Title.text = "P" + playerNumber;
 
 		CardSlotPrefab = Resources.Load("UI/CardLarge") as GameObject;
 		
@@ -110,6 +118,15 @@ public class PlayerCardSelectUI : MonoBehaviour
 				Cards[i].SetupForAction(null);
 			}
 		}
+	}
+
+	public void Update()
+	{
+		if (player == null)
+			return;
+
+		Animator.SetBool("SelectionLockedIn", player.SelectionLockedIn);
+		Animator.SetBool("TimeIsLow", TimeIsLow);
 	}
 }
 

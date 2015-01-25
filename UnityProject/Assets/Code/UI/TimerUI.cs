@@ -51,7 +51,7 @@ public class TimerUI : MonoBehaviour {
 		TimerText.text = Mathf.FloorToInt(Mathf.Max(0.0f, TimerCurrent + 1.0f)).ToString();
 		TimerImage.fillAmount = TimerCurrent / TimerLength;
 
-		Animator.SetBool("TimeLow", TimerCurrent / TimerLength < TimeLowFraction);
+		Animator.SetBool("TimeLow", TimeIsLow);
 	}
 
 	public void ResetTimer(float duration)
@@ -62,5 +62,14 @@ public class TimerUI : MonoBehaviour {
 		lockOutTimerCountdown = false;
 
 		UpdateUI();
+	}
+
+	public bool TimeIsLow
+	{
+		get
+		{
+			return TimerCurrent / TimerLength < TimeLowFraction;
+		}
+
 	}
 }

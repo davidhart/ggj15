@@ -6,7 +6,9 @@ public class IngameController : MonoBehaviour
 {
 	public static IngameController Instance { get; private set; }
 
-	public List<PlayerCardSelectUI> PlayerCardUI = new List<PlayerCardSelectUI>();
+	public List<RectTransform> PlayerCardUIParent = new List<RectTransform>();
+	private List<PlayerCardSelectUI> PlayerCardUI = new List<PlayerCardSelectUI>();
+	private GameObject PlayerPrefab;
 	public TimerUI Timer;
 
 	float timerDuration = 10.0f;
@@ -18,16 +20,30 @@ public class IngameController : MonoBehaviour
 	{
 		Instance = this;
 
-		for (int i = 0; i < PlayerCardUI.Count; ++i)
+		PlayerPrefab = Resources.Load("UI/PlayerCardSelectUI") as GameObject;
+
+		for (int i = 0; i < PlayerCardUIParent.Count; ++i)
 		{
+			GameObject instance = GameObject.Instantiate(PlayerPrefab) as GameObject;
+			RectTransform instanceTransform = instance.GetComponent<RectTransform>();
+			instanceTransform.SetParent(PlayerCardUIParent[i]);
+			instanceTransform.anchorMin = Vector2.zero;
+			instanceTransform.anchorMax = Vector2.one;
+			instanceTransform.offsetMin = Vector2.zero;
+			instanceTransform.offsetMax = Vector2.zero;
+
+			PlayerCardSelectUI cardUI = instance.GetComponent<PlayerCardSelectUI>();
+
 			if (i < ActivePlayers.Instance.Players.Count)
 			{
-				PlayerCardUI[i].SetupForPlayer(ActivePlayers.Instance.Players[i]);
+				cardUI.SetupForPlayer(ActivePlayers.Instance.Players[i], i + 1);
 			}
 			else
 			{
-				PlayerCardUI[i].gameObject.SetActive(false);
+				cardUI.gameObject.SetActive(false);
 			}
+
+			PlayerCardUI.Add( cardUI );
 		}
 
 		foreach(Player player in ActivePlayers.Instance.Players)
@@ -66,6 +82,11 @@ public class IngameController : MonoBehaviour
 		foreach(Player player in ActivePlayers.Instance.Players)
 		{
 			player.UpdateInput();
+		}
+
+		foreach(PlayerCardSelectUI cardUI in PlayerCardUI)
+		{
+			cardUI.TimeIsLow = Timer.TimeIsLow;
 		}
 
 		CheckForVictory();
