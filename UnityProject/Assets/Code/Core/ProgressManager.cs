@@ -36,7 +36,6 @@ public class ProgressManager
 
 		if( currentLevel >= levels.Count )
 		{
-			Debug.LogError( "GAME COMPLETE - MAKE THIS SCREEN" );
 			StateMachine.Instance.SetState( new SignInState() );
 		}
 		else
