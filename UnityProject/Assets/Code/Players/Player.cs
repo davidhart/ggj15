@@ -19,7 +19,7 @@ public class Player
 	int selectionIndex = 0;
 	int stickDirection = 0;
 	float timeSinceTick = 0;
-	const float controllerTickSpeed = 0.35f;
+	const float controllerTickSpeed = 0.5f;
 	const float slotTickSpeed = 0.25f;
 	const float randomTickSpeed = 0.25f;
 
