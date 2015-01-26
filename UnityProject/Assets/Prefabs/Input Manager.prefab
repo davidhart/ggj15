@@ -273,7 +273,7 @@ MonoBehaviour:
   - target: 8
     button: button 3
   - target: 128
-    button: button 4
+    button: button 7
   axisMappings:
   - target: 0
     axis: 'Joystick # X'
