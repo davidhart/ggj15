@@ -6,7 +6,7 @@ public class Thanks : MonoBehaviour
 
 	void Awake()
 	{
-		if (ProgressManager.Instance.IsFinished() == false)
+		if (ProgressManager.Instance.IsOnLastLevel() == false)
 			gameObject.SetActive(false);
 	}
 }
